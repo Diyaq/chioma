@@ -259,7 +259,11 @@ export class AuthController {
       role: string;
       type: string;
     }>(completeMfaLoginDto.mfaToken, {
-      secret: this.configService.get<string>('JWT_SECRET') || 'your-secret-key',
+      secret: (() => {
+        const s = this.configService.get<string>('JWT_SECRET');
+        if (!s) throw new Error('JWT_SECRET is required');
+        return s;
+      })(),
     });
 
     if (payload.type !== 'mfa_required') {
@@ -476,6 +480,32 @@ export class AuthController {
     @Query() verifyEmailDto: VerifyEmailDto,
   ): Promise<MessageResponseDto> {
     return this.authService.verifyEmail(verifyEmailDto.token);
+  }
+
+  @Post('resend-verification')
+  @UseGuards(JwtAuthGuard)
+  @ApiBearerAuth('JWT-auth')
+  @HttpCode(HttpStatus.OK)
+  @Throttle({ default: { limit: 3, ttl: 60000 } })
+  @ApiOperation({
+    summary: 'Resend email verification link',
+    description:
+      'Re-sends the verification email for the current user. Idempotent: an existing, unexpired token is reused so previously sent links keep working.',
+  })
+  @ApiResponse({
+    status: 200,
+    description: 'Verification email sent (or email already verified)',
+    type: MessageResponseDto,
+  })
+  @ApiResponse({
+    status: 401,
+    description: 'Unauthorized',
+    type: ErrorResponseDto,
+  })
+  async resendVerification(
+    @CurrentUser() user: User,
+  ): Promise<MessageResponseDto> {
+    return this.authService.resendVerificationEmail(user.id);
   }
 
   @Post('complete-profile')

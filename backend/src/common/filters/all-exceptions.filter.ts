@@ -14,6 +14,19 @@ import { ErrorCode } from '../errors/error-codes';
 import { RateLimitError } from '../errors/domain-errors';
 import { ErrorResponseDto } from '../dto/error-response.dto';
 
+/** Express Request extended with fields added by NestJS/Passport middleware. */
+interface AuthenticatedRequest extends Request {
+  requestId?: string;
+  user?: { id: string };
+}
+
+/** Shape of a NestJS ValidationPipe exception response body. */
+interface ValidationExceptionResponse {
+  message: string | string[];
+  error?: string;
+  statusCode?: number;
+}
+
 @Catch()
 export class AllExceptionsFilter implements ExceptionFilter {
   private readonly logger = new Logger(AllExceptionsFilter.name);
@@ -21,7 +34,7 @@ export class AllExceptionsFilter implements ExceptionFilter {
   catch(exception: unknown, host: ArgumentsHost): void {
     const ctx = host.switchToHttp();
     const response = ctx.getResponse<Response>();
-    const request = ctx.getRequest<Request>();
+    const request = ctx.getRequest<AuthenticatedRequest>();
 
     const { status, body, retryAfter } = this.resolve(exception, request);
 
@@ -31,12 +44,12 @@ export class AllExceptionsFilter implements ExceptionFilter {
 
     // Log error with request context
     const requestId =
-      (request as any).requestId || request.headers['x-request-id'];
+      request.requestId ?? (request.headers['x-request-id'] as string);
     const logContext = {
       requestId,
       path: request.url,
       method: request.method,
-      userId: (request as any).user?.id,
+      userId: request.user?.id,
       statusCode: status,
     };
 
@@ -50,9 +63,7 @@ export class AllExceptionsFilter implements ExceptionFilter {
       // Report to Sentry if it's a server error
       Sentry.captureException(exception, {
         extra: logContext,
-        user: (request as any).user
-          ? { id: (request as any).user.id }
-          : undefined,
+        user: request.user ? { id: request.user.id } : undefined,
       });
     } else {
       this.logger.warn(
@@ -60,19 +71,23 @@ export class AllExceptionsFilter implements ExceptionFilter {
       );
     }
 
+    if (body.retryAfter) {
+      response.setHeader('Retry-After', String(body.retryAfter));
+    }
+
     response.status(status).json(body);
   }
 
   private resolve(
     exception: unknown,
-    request: Request,
+    request: AuthenticatedRequest,
   ): {
     status: number;
     body: ErrorResponseDto;
     retryAfter?: number;
   } {
     const requestId =
-      (request as any).requestId || request.headers['x-request-id'];
+      request.requestId ?? (request.headers['x-request-id'] as string);
     const path = request.url;
     const timestamp = new Date().toISOString();
 
@@ -116,6 +131,7 @@ export class AllExceptionsFilter implements ExceptionFilter {
             ? exceptionResponse
             : ((exceptionResponse as Record<string, unknown>)
                 .message as string) || 'Too Many Requests';
+
         return {
           status,
           body: {
@@ -134,7 +150,7 @@ export class AllExceptionsFilter implements ExceptionFilter {
         status === (HttpStatus.BAD_REQUEST as number) &&
         typeof exceptionResponse === 'object'
       ) {
-        const res = exceptionResponse as any;
+        const res = exceptionResponse as ValidationExceptionResponse;
         if (Array.isArray(res.message)) {
           return {
             status,
@@ -153,7 +169,7 @@ export class AllExceptionsFilter implements ExceptionFilter {
         typeof exceptionResponse === 'object'
           ? ({
               ...baseResponse,
-              ...(exceptionResponse as any),
+              ...(exceptionResponse as Record<string, unknown>),
             } as ErrorResponseDto)
           : ({
               ...baseResponse,

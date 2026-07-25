@@ -210,6 +210,14 @@ function validateProductionSecrets(
   if (isNonEmpty(paymentMeta) && isPlaceholderSecret(paymentMeta)) {
     errors.push('PAYMENT_METADATA_SECRET must not use a placeholder value');
   }
+
+  // Require PAYMENT_WEBHOOK_SECRET in production/staging
+  const webhookSecret = config.PAYMENT_WEBHOOK_SECRET;
+  if (!isNonEmpty(webhookSecret)) {
+    errors.push('PAYMENT_WEBHOOK_SECRET is required in production/staging');
+  } else if (isPlaceholderSecret(webhookSecret)) {
+    errors.push('PAYMENT_WEBHOOK_SECRET must not use a placeholder value');
+  }
 }
 
 // ---------------------------------------------------------------------------
@@ -648,6 +656,10 @@ export function validateEnvironment(
     validateRedis(config, errors);
     validateEncryptionKeys(config, errors);
     validateSecurityEncryptionKey(config.SECURITY_ENCRYPTION_KEY, errors, true);
+
+    if (!isNonEmpty(config.PAYMENT_WEBHOOK_SECRET)) {
+      errors.push('PAYMENT_WEBHOOK_SECRET is required in staging/production');
+    }
 
     if (
       nodeEnv === 'production' &&

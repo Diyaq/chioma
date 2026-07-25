@@ -17,7 +17,11 @@ import { LockService } from '../../common/lock';
 import { REDIS_CLIENT } from '../../common/lock/redis-client.token';
 import { IdempotencyService } from '../../common/idempotency';
 import { FraudHooksService } from '../fraud/fraud-hooks.service';
-import { encryptMetadata, decryptMetadata } from './payment.helpers';
+import {
+  encryptMetadata,
+  decryptMetadata,
+  PAYMENT_STATUS_MAP,
+} from './payment.helpers';
 
 const mockPaymentRepository = () => ({
   findOne: jest.fn(),
@@ -830,4 +834,31 @@ describe('PaymentService', () => {
       expect(() => decryptMetadata(encrypted)).toThrow();
     });
   });
+
+  describe('PAYMENT_STATUS_MAP', () => {
+    it('maps payment gateway webhook statuses to PaymentStatus', () => {
+      expect(PAYMENT_STATUS_MAP['completed']).toBe(PaymentStatus.COMPLETED);
+      expect(PAYMENT_STATUS_MAP['successful']).toBe(PaymentStatus.COMPLETED);
+      expect(PAYMENT_STATUS_MAP['success']).toBe(PaymentStatus.COMPLETED);
+      expect(PAYMENT_STATUS_MAP['pending']).toBe(PaymentStatus.PENDING);
+      expect(PAYMENT_STATUS_MAP['processing']).toBe(PaymentStatus.PENDING);
+      expect(PAYMENT_STATUS_MAP['failed']).toBe(PaymentStatus.FAILED);
+      expect(PAYMENT_STATUS_MAP['error']).toBe(PaymentStatus.FAILED);
+      expect(PAYMENT_STATUS_MAP['cancelled']).toBe(PaymentStatus.FAILED);
+      expect(PAYMENT_STATUS_MAP['refunded']).toBe(PaymentStatus.REFUNDED);
+    });
+
+    it('maps escrow states to PaymentStatus', () => {
+      expect(PAYMENT_STATUS_MAP['active']).toBe(PaymentStatus.PENDING);
+      expect(PAYMENT_STATUS_MAP['released']).toBe(PaymentStatus.COMPLETED);
+      expect(PAYMENT_STATUS_MAP['refunded']).toBe(PaymentStatus.REFUNDED);
+      expect(PAYMENT_STATUS_MAP['failed']).toBe(PaymentStatus.FAILED);
+      expect(PAYMENT_STATUS_MAP['expired']).toBe(PaymentStatus.FAILED);
+    });
+
+    it('has no unknown status key', () => {
+      expect(PAYMENT_STATUS_MAP['unknown-status']).toBeUndefined();
+    });
+  });
+
 });

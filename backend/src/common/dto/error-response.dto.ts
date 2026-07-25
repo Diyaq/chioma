@@ -49,4 +49,26 @@ export class ErrorResponseDto {
     required: false,
   })
   path?: string;
+
+  @ApiProperty({
+    example: 60,
+    description: 'Seconds to wait before retrying (for rate limit errors)',
+    required: false,
+  })
+  retryAfter?: number;
+
+  @ApiProperty({
+    example: 25,
+    description:
+      'Amount actually available for the operation (e.g. remaining refundable amount)',
+    required: false,
+  })
+  available?: number;
+
+  @ApiProperty({
+    example: 100,
+    description: 'Amount that was requested for the operation',
+    required: false,
+  })
+  requested?: number;
 }

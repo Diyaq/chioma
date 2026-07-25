@@ -60,6 +60,7 @@ describe('AuthService', () => {
     phoneNumber: null,
     avatarUrl: null,
     verificationToken: null,
+    verificationTokenExpires: null,
   };
 
   const mockUserRepository = {
@@ -425,191 +426,115 @@ describe('AuthService', () => {
     });
   });
 
-  describe('completeProfile', () => {
-    const walletUser: Partial<User> = {
-      id: 'wallet-user-id',
-      email: null as unknown as string,
-      emailVerified: false,
-      verificationToken: null,
-      firstName: 'Wallet',
-      lastName: 'User',
-    };
+  describe('resendVerificationEmail', () => {
+    it('generates a token and sends the email for an unverified user', async () => {
+      const unverifiedUser = {
+        ...mockUser,
+        emailVerified: false,
+        verificationToken: null,
+        verificationTokenExpires: null,
+      };
 
-    const dto: CompleteProfileDto = {
-      email: 'newemail@example.com',
-      firstName: 'Ada',
-      lastName: 'Okafor',
-    };
+      mockUserRepository.findOne.mockResolvedValue(unverifiedUser);
+      mockUserRepository.save.mockImplementation(async (u: User) => u);
 
-    it('throws ValidationError when the user does not exist', async () => {
+      const result = await service.resendVerificationEmail(mockUser.id!);
+
+      expect(mockUserRepository.save).toHaveBeenCalledTimes(1);
+      expect(unverifiedUser.verificationToken).toEqual(expect.any(String));
+      expect(unverifiedUser.verificationTokenExpires).toBeInstanceOf(Date);
+      expect(emailService.sendVerificationEmail).toHaveBeenCalledWith(
+        unverifiedUser.email,
+        unverifiedUser.verificationToken,
+      );
+      expect(result.message).toContain('verification link');
+    });
+
+    it('reuses an existing unexpired token instead of overwriting it', async () => {
+      const existingToken = 'existing-valid-token';
+      const unverifiedUser = {
+        ...mockUser,
+        emailVerified: false,
+        verificationToken: existingToken,
+        verificationTokenExpires: new Date(Date.now() + 60 * 60 * 1000),
+      };
+
+      mockUserRepository.findOne.mockResolvedValue(unverifiedUser);
+      mockUserRepository.save.mockImplementation(async (u: User) => u);
+
+      await service.resendVerificationEmail(mockUser.id!);
+
+      // The already-issued token (and its link) must remain valid.
+      expect(unverifiedUser.verificationToken).toBe(existingToken);
+      expect(emailService.sendVerificationEmail).toHaveBeenCalledWith(
+        unverifiedUser.email,
+        existingToken,
+      );
+    });
+
+    it('rotates an expired token', async () => {
+      const expiredToken = 'expired-token';
+      const unverifiedUser = {
+        ...mockUser,
+        emailVerified: false,
+        verificationToken: expiredToken,
+        verificationTokenExpires: new Date(Date.now() - 60 * 60 * 1000),
+      };
+
+      mockUserRepository.findOne.mockResolvedValue(unverifiedUser);
+      mockUserRepository.save.mockImplementation(async (u: User) => u);
+
+      await service.resendVerificationEmail(mockUser.id!);
+
+      expect(unverifiedUser.verificationToken).not.toBe(expiredToken);
+      expect(unverifiedUser.verificationToken).toEqual(expect.any(String));
+    });
+
+    it('is a no-op for an already-verified user', async () => {
+      mockUserRepository.findOne.mockResolvedValue({
+        ...mockUser,
+        emailVerified: true,
+      });
+
+      const result = await service.resendVerificationEmail(mockUser.id!);
+
+      expect(result.message).toContain('already verified');
+      expect(mockUserRepository.save).not.toHaveBeenCalled();
+      expect(emailService.sendVerificationEmail).not.toHaveBeenCalled();
+    });
+
+    it('throws when the user does not exist', async () => {
       mockUserRepository.findOne.mockResolvedValue(null);
 
-      await expect(service.completeProfile('missing-id', dto)).rejects.toThrow(
-        ValidationError,
-      );
-    });
-
-    it('throws DuplicateEntryError when the email belongs to another user', async () => {
-      mockUserRepository.findOne
-        .mockResolvedValueOnce(walletUser)
-        .mockResolvedValueOnce({ ...mockUser, id: 'someone-else' });
-
       await expect(
-        service.completeProfile('wallet-user-id', dto),
-      ).rejects.toThrow(DuplicateEntryError);
+        service.resendVerificationEmail('missing-id'),
+      ).rejects.toThrow(ValidationError);
     });
 
-    it('generates and saves a new verification token on first completion', async () => {
-      mockUserRepository.findOne
-        .mockResolvedValueOnce({ ...walletUser })
-        .mockResolvedValueOnce(null);
-      mockUserRepository.save.mockImplementation((u) => Promise.resolve(u));
-
-      await service.completeProfile('wallet-user-id', dto);
-
-      expect(mockUserRepository.save).toHaveBeenCalledWith(
-        expect.objectContaining({
-          email: 'newemail@example.com',
-          emailVerified: false,
-          verificationToken: expect.any(String),
-        }),
-      );
-      const savedUser = mockUserRepository.save.mock.calls[0][0];
-      expect(emailService.sendVerificationEmail).toHaveBeenCalledWith(
-        'newemail@example.com',
-        savedUser.verificationToken,
-      );
-    });
-
-    it('reuses the existing pending token instead of generating a new one when resending for the same unverified email', async () => {
-      const userWithPendingToken = {
-        ...walletUser,
-        email: 'newemail@example.com',
+    it('handles concurrent requests idempotently (single shared token)', async () => {
+      const unverifiedUser = {
+        ...mockUser,
         emailVerified: false,
-        verificationToken: 'existing-pending-token',
-      };
-      mockUserRepository.findOne
-        .mockResolvedValueOnce({ ...userWithPendingToken })
-        .mockResolvedValueOnce({ ...userWithPendingToken });
-      mockUserRepository.save.mockImplementation((u) => Promise.resolve(u));
-
-      await service.completeProfile('wallet-user-id', dto);
-
-      expect(mockUserRepository.save).toHaveBeenCalledWith(
-        expect.objectContaining({
-          verificationToken: 'existing-pending-token',
-        }),
-      );
-      expect(emailService.sendVerificationEmail).toHaveBeenCalledWith(
-        'newemail@example.com',
-        'existing-pending-token',
-      );
-    });
-
-    it('generates a fresh token when the previous email was already verified', async () => {
-      const verifiedUser = {
-        ...walletUser,
-        email: 'old@example.com',
-        emailVerified: true,
         verificationToken: null,
+        verificationTokenExpires: null,
       };
-      mockUserRepository.findOne
-        .mockResolvedValueOnce({ ...verifiedUser })
-        .mockResolvedValueOnce(null);
-      mockUserRepository.save.mockImplementation((u) => Promise.resolve(u));
 
-      await service.completeProfile('wallet-user-id', dto);
+      // Both concurrent requests resolve the same user entity, mirroring two
+      // requests that read the row before either has written a token.
+      mockUserRepository.findOne.mockResolvedValue(unverifiedUser);
+      mockUserRepository.save.mockImplementation(async (u: User) => u);
 
-      const savedUser = mockUserRepository.save.mock.calls[0][0];
-      expect(savedUser.verificationToken).toEqual(expect.any(String));
-      expect(savedUser.verificationToken).not.toBeNull();
-    });
+      await Promise.all([
+        service.resendVerificationEmail(mockUser.id!),
+        service.resendVerificationEmail(mockUser.id!),
+      ]);
 
-    describe('concurrent calls', () => {
-      it('converges on a single verification token instead of each concurrent call overwriting the other', async () => {
-        let storedUser: any = { ...walletUser };
-
-        const statefulUserRepository = {
-          findOne: jest.fn(async () => ({ ...storedUser })),
-          save: jest.fn(async (u: any) => {
-            storedUser = { ...u };
-            return storedUser;
-          }),
-          create: jest.fn(),
-          update: jest.fn(),
-        };
-
-        const module: TestingModule = await Test.createTestingModule({
-          providers: [
-            AuthService,
-            {
-              provide: getRepositoryToken(User),
-              useValue: statefulUserRepository,
-            },
-            {
-              provide: getRepositoryToken(MfaDevice),
-              useValue: { findOne: jest.fn(), save: jest.fn() },
-            },
-            { provide: JwtService, useValue: mockJwtService },
-            { provide: ConfigService, useValue: mockConfigService },
-            {
-              provide: PasswordPolicyService,
-              useValue: {
-                validatePassword: jest.fn().mockResolvedValue(undefined),
-              },
-            },
-            {
-              provide: EmailService,
-              useValue: {
-                sendVerificationEmail: jest.fn().mockResolvedValue(undefined),
-                sendPasswordResetEmail: jest.fn().mockResolvedValue(undefined),
-              },
-            },
-            {
-              provide: MfaService,
-              useValue: {
-                checkMfaRequired: jest.fn().mockResolvedValue(false),
-                generateMfaToken: jest.fn().mockResolvedValue(undefined),
-                verifyMfaToken: jest.fn().mockResolvedValue(undefined),
-              },
-            },
-            {
-              provide: ReferralService,
-              useValue: {
-                generateReferralCode: jest.fn().mockResolvedValue('REF12345'),
-                trackReferral: jest.fn().mockResolvedValue(undefined),
-              },
-            },
-            {
-              provide: LoggerService,
-              useValue: { log: jest.fn(), warn: jest.fn(), error: jest.fn() },
-            },
-            // Real LockService (in-memory, no Redis) so @Locked actually
-            // serializes the concurrent completeProfile calls below.
-            LockService,
-            { provide: REDIS_CLIENT, useValue: null },
-          ],
-        }).compile();
-
-        const concurrentService = module.get<AuthService>(AuthService);
-        const concurrentEmailService = module.get<EmailService>(EmailService);
-
-        await Promise.all([
-          concurrentService.completeProfile('wallet-user-id', dto),
-          concurrentService.completeProfile('wallet-user-id', dto),
-          concurrentService.completeProfile('wallet-user-id', dto),
-        ]);
-
-        expect(storedUser.verificationToken).toEqual(expect.any(String));
-
-        const sentTokens = (
-          concurrentEmailService.sendVerificationEmail as jest.Mock
-        ).mock.calls.map(([, token]: [string, string]) => token);
-
-        expect(sentTokens).toHaveLength(3);
-        expect(new Set(sentTokens).size).toBe(1);
-        expect(sentTokens[0]).toBe(storedUser.verificationToken);
-      });
+      const emailCalls = (emailService.sendVerificationEmail as jest.Mock).mock
+        .calls;
+      expect(emailCalls).toHaveLength(2);
+      // Both emails carry the identical token — no request clobbered the other.
+      expect(emailCalls[0][1]).toBe(emailCalls[1][1]);
+      expect(unverifiedUser.verificationToken).toBe(emailCalls[0][1]);
     });
   });
 

@@ -14,6 +14,7 @@ import { PaymentProcessingService } from '../stellar/services/payment-processing
 import { StellarService } from '../stellar/services/stellar.service';
 import * as StellarSdk from '@stellar/stellar-sdk';
 import { LockService } from '../../common/lock';
+import { REDIS_CLIENT } from '../../common/lock/redis-client.token';
 import { IdempotencyService } from '../../common/idempotency';
 import { FraudHooksService } from '../fraud/fraud-hooks.service';
 import { encryptMetadata, decryptMetadata } from './payment.helpers';
@@ -401,6 +402,123 @@ describe('PaymentService', () => {
         expect.stringContaining('100'),
         'PAYMENT_FAILED',
       );
+    });
+  });
+
+  describe('concurrent recordPayment calls', () => {
+    // These tests exercise the real LockService/IdempotencyService (in-memory
+    // fallback, no Redis) instead of the pass-through mocks used above, so
+    // that the @Locked + @Idempotent decorators on recordPayment actually
+    // serialize concurrent calls and dedupe by idempotency key.
+    let concurrentService: PaymentService;
+    let concurrentPaymentRepository: ReturnType<typeof mockPaymentRepository>;
+    let concurrentPaymentMethodRepository: ReturnType<
+      typeof mockPaymentMethodRepository
+    >;
+
+    beforeEach(async () => {
+      concurrentPaymentRepository = mockPaymentRepository();
+      concurrentPaymentMethodRepository = mockPaymentMethodRepository();
+
+      const module: TestingModule = await Test.createTestingModule({
+        providers: [
+          PaymentService,
+          {
+            provide: getRepositoryToken(Payment),
+            useValue: concurrentPaymentRepository,
+          },
+          {
+            provide: getRepositoryToken(PaymentMethod),
+            useValue: concurrentPaymentMethodRepository,
+          },
+          { provide: PaymentGatewayService, useValue: mockPaymentGateway },
+          { provide: NotificationsService, useValue: mockNotificationsService },
+          { provide: Object, useValue: mockUsersService },
+          {
+            provide: PaymentProcessingService,
+            useValue: mockPaymentProcessingService,
+          },
+          { provide: StellarService, useValue: mockStellarService },
+          { provide: FraudHooksService, useValue: mockFraudHooksService },
+          LockService,
+          IdempotencyService,
+          { provide: REDIS_CLIENT, useValue: null },
+        ],
+      }).compile();
+
+      concurrentService = module.get<PaymentService>(PaymentService);
+
+      concurrentPaymentMethodRepository.findOne.mockResolvedValue({
+        id: 1,
+        userId: 'user_1',
+        encryptedMetadata: null,
+      });
+      mockUsersService.getUserById.mockResolvedValue({
+        email: 'test@example.com',
+      });
+      mockPaymentGateway.chargePayment.mockResolvedValue({
+        success: true,
+        chargeId: 'charge_concurrent',
+      });
+      concurrentPaymentRepository.create.mockImplementation(
+        (data: Partial<Payment>) => data as Payment,
+      );
+      concurrentPaymentRepository.save.mockResolvedValue({
+        id: 'pay_concurrent',
+        amount: 100,
+        currency: 'NGN',
+        paymentMethod: 'card',
+      });
+    });
+
+    afterEach(() => {
+      jest.clearAllMocks();
+    });
+
+    it.each([5, 10, 50])(
+      'dedupes %i concurrent recordPayment calls sharing an idempotency key',
+      async (concurrency) => {
+        const dto = {
+          agreementId: 'agreement_1',
+          amount: 100,
+          paymentMethodId: '1',
+          idempotencyKey: 'idem_concurrent_1',
+        } as CreatePaymentRecordDto & { idempotencyKey: string };
+
+        const results = await Promise.all(
+          Array.from({ length: concurrency }, () =>
+            concurrentService.recordPayment(dto, 'user_1'),
+          ),
+        );
+
+        expect(results).toHaveLength(concurrency);
+        results.forEach((result) => {
+          expect(result.id).toBe('pay_concurrent');
+        });
+
+        expect(mockPaymentGateway.chargePayment).toHaveBeenCalledTimes(1);
+        expect(concurrentPaymentRepository.save).toHaveBeenCalledTimes(1);
+      },
+    );
+
+    it('only records one payment when concurrent requests use different idempotency keys but the same payment method', async () => {
+      const makeDto = (idempotencyKey: string) =>
+        ({
+          agreementId: 'agreement_1',
+          amount: 100,
+          paymentMethodId: '1',
+          idempotencyKey,
+        }) as CreatePaymentRecordDto & { idempotencyKey: string };
+
+      const results = await Promise.all([
+        concurrentService.recordPayment(makeDto('idem_a'), 'user_1'),
+        concurrentService.recordPayment(makeDto('idem_a'), 'user_1'),
+        concurrentService.recordPayment(makeDto('idem_b'), 'user_1'),
+      ]);
+
+      expect(results).toHaveLength(3);
+      expect(mockPaymentGateway.chargePayment).toHaveBeenCalledTimes(2);
+      expect(concurrentPaymentRepository.save).toHaveBeenCalledTimes(2);
     });
   });
 

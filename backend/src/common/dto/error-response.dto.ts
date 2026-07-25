@@ -49,11 +49,4 @@ export class ErrorResponseDto {
     required: false,
   })
   path?: string;
-
-  @ApiProperty({
-    example: 60,
-    description: 'Seconds to wait before retrying (for rate limit errors)',
-    required: false,
-  })
-  retryAfter?: number;
 }

@@ -436,7 +436,16 @@ export class AuthService {
    * Attaches an email address (and optionally a name) to a wallet-only
    * account, then sends a verification link through the same flow used
    * during normal registration.
+   *
+   * Locked per-user so concurrent calls can't each generate and save a
+   * different verification token (last write wins, silently invalidating
+   * whichever token was already emailed out). Once a token is pending for
+   * the same unverified email, it's reused rather than regenerated.
    */
+  @Locked({
+    key: (userId: string) => `user:complete-profile:${userId}`,
+    ttlMs: 5000,
+  })
   async completeProfile(
     userId: string,
     dto: CompleteProfileDto,
@@ -454,7 +463,14 @@ export class AuthService {
       throw new DuplicateEntryError('Email already registered');
     }
 
-    const verificationToken = crypto.randomBytes(32).toString('hex');
+    const hasPendingTokenForSameEmail =
+      user.email === normalizedEmail &&
+      !user.emailVerified &&
+      !!user.verificationToken;
+
+    const verificationToken = hasPendingTokenForSameEmail
+      ? user.verificationToken!
+      : crypto.randomBytes(32).toString('hex');
 
     user.email = normalizedEmail;
     user.emailHash = this.hashLookupValue(normalizedEmail);

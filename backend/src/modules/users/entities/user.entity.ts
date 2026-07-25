@@ -107,6 +107,7 @@ export class User {
   kycStatus: KycStatus;
 
   @Exclude()
+  @Index('idx_users_verification_token', { unique: true })
   @Column({ name: 'verification_token', nullable: true, type: 'varchar' })
   verificationToken: string | null;
 

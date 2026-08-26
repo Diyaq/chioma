@@ -1,5 +1,7 @@
-#![no_std]
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 caxton strange
 
+#![no_std]
 use soroban_sdk::{contract, contractimpl, Address, Env, String, Vec};
 
 mod agent;

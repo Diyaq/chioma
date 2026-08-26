@@ -1,9 +1,13 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 caxton strange
+
 export const WORKER_QUEUE_NAMES = [
   'email',
   'documents',
   'blockchain',
   'data-sync',
   'analytics',
+  'video-processing',
 ] as const;
 
 export type WorkerQueueName = (typeof WORKER_QUEUE_NAMES)[number];

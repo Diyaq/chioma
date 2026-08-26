@@ -11,9 +11,7 @@
           }
         },
         "summary": "Health check",
-        "tags": [
-          "System"
-        ]
+        "tags": ["System"]
       }
     },
     "/v1/security.txt": {
@@ -34,9 +32,7 @@
           }
         },
         "summary": "Security policy information",
-        "tags": [
-          "Security"
-        ]
+        "tags": ["Security"]
       }
     },
     "/api/v1/security/events": {
@@ -71,9 +67,7 @@
           }
         ],
         "summary": "Get recent security events",
-        "tags": [
-          "Security"
-        ]
+        "tags": ["Security"]
       }
     },
     "/api/v1/security/events/user/{userId}": {
@@ -116,9 +110,7 @@
           }
         ],
         "summary": "Get security events for a specific user",
-        "tags": [
-          "Security"
-        ]
+        "tags": ["Security"]
       }
     },
     "/api/v1/security/events/suspicious/{userId}": {
@@ -145,9 +137,7 @@
           }
         ],
         "summary": "Check for suspicious activity on a user account",
-        "tags": [
-          "Security"
-        ]
+        "tags": ["Security"]
       }
     },
     "/api/v1/security/threats": {
@@ -174,9 +164,7 @@
           }
         ],
         "summary": "Get recent threat events",
-        "tags": [
-          "Security"
-        ]
+        "tags": ["Security"]
       }
     },
     "/api/v1/security/threats/stats": {
@@ -203,9 +191,7 @@
           }
         ],
         "summary": "Get threat detection statistics",
-        "tags": [
-          "Security"
-        ]
+        "tags": ["Security"]
       }
     },
     "/api/v1/security/threats/{id}/false-positive": {
@@ -232,9 +218,7 @@
           }
         ],
         "summary": "Mark a threat event as false positive",
-        "tags": [
-          "Security"
-        ]
+        "tags": ["Security"]
       }
     },
     "/api/v1/security/incidents": {
@@ -252,9 +236,7 @@
           }
         ],
         "summary": "Get open security incidents",
-        "tags": [
-          "Security"
-        ]
+        "tags": ["Security"]
       }
     },
     "/api/v1/security/incidents/metrics": {
@@ -272,9 +254,7 @@
           }
         ],
         "summary": "Get incident response KPIs (MTTD / MTTR)",
-        "tags": [
-          "Security"
-        ]
+        "tags": ["Security"]
       }
     },
     "/api/v1/security/incidents/{id}/resolve": {
@@ -301,9 +281,7 @@
           }
         ],
         "summary": "Resolve a security incident",
-        "tags": [
-          "Security"
-        ]
+        "tags": ["Security"]
       }
     },
     "/api/v1/security/incidents/{id}/report": {
@@ -330,9 +308,7 @@
           }
         ],
         "summary": "Generate a post-incident report",
-        "tags": [
-          "Security"
-        ]
+        "tags": ["Security"]
       }
     },
     "/api/v1/security/compliance/score": {
@@ -350,9 +326,7 @@
           }
         ],
         "summary": "Get overall security compliance score",
-        "tags": [
-          "Security"
-        ]
+        "tags": ["Security"]
       }
     },
     "/api/v1/security/compliance/gdpr": {
@@ -389,9 +363,7 @@
           }
         ],
         "summary": "Generate GDPR compliance report",
-        "tags": [
-          "Security"
-        ]
+        "tags": ["Security"]
       }
     },
     "/api/v1/security/compliance/soc2": {
@@ -426,9 +398,7 @@
           }
         ],
         "summary": "Generate SOC2 Type II compliance report",
-        "tags": [
-          "Security"
-        ]
+        "tags": ["Security"]
       }
     },
     "/api/v1/security/compliance/pci-dss": {
@@ -463,9 +433,7 @@
           }
         ],
         "summary": "Generate PCI-DSS compliance report",
-        "tags": [
-          "Security"
-        ]
+        "tags": ["Security"]
       }
     },
     "/api/v1/security/rbac/roles": {
@@ -483,9 +451,7 @@
           }
         ],
         "summary": "List all RBAC roles with permissions",
-        "tags": [
-          "Security"
-        ]
+        "tags": ["Security"]
       }
     },
     "/api/v1/security/rbac/permissions": {
@@ -503,9 +469,7 @@
           }
         ],
         "summary": "List all permissions",
-        "tags": [
-          "Security"
-        ]
+        "tags": ["Security"]
       }
     },
     "/api/v1/security/rbac/seed": {
@@ -523,9 +487,7 @@
           }
         ],
         "summary": "Seed default RBAC roles and permissions",
-        "tags": [
-          "Security"
-        ]
+        "tags": ["Security"]
       }
     },
     "/api/v1/security/audit/anchor": {
@@ -552,9 +514,7 @@
           }
         ],
         "summary": "Anchor latest audit log batch to blockchain",
-        "tags": [
-          "Security"
-        ]
+        "tags": ["Security"]
       }
     },
     "/api/v1/audit": {
@@ -668,10 +628,7 @@
             "schema": {
               "example": "SUCCESS",
               "type": "string",
-              "enum": [
-                "SUCCESS",
-                "FAILURE"
-              ]
+              "enum": ["SUCCESS", "FAILURE"]
             }
           },
           {
@@ -682,12 +639,7 @@
             "schema": {
               "example": "WARNING",
               "type": "string",
-              "enum": [
-                "INFO",
-                "WARN",
-                "ERROR",
-                "SECURITY"
-              ]
+              "enum": ["INFO", "WARN", "ERROR", "SECURITY"]
             }
           },
           {
@@ -759,9 +711,7 @@
           }
         ],
         "summary": "Query audit logs with filtering and pagination",
-        "tags": [
-          "Audit Logs"
-        ]
+        "tags": ["Audit Logs"]
       }
     },
     "/api/v1/audit/trail/{entityType}/{entityId}": {
@@ -814,9 +764,7 @@
           }
         ],
         "summary": "Get audit trail for a specific entity",
-        "tags": [
-          "Audit Logs"
-        ]
+        "tags": ["Audit Logs"]
       }
     },
     "/api/v1/audit/user-activity/{userId}": {
@@ -861,9 +809,7 @@
           }
         ],
         "summary": "Get activity logs for a specific user",
-        "tags": [
-          "Audit Logs"
-        ]
+        "tags": ["Audit Logs"]
       }
     },
     "/api/v1/audit/stats": {
@@ -881,9 +827,7 @@
           }
         ],
         "summary": "Get audit log statistics",
-        "tags": [
-          "Audit Logs"
-        ]
+        "tags": ["Audit Logs"]
       }
     },
     "/api/v1/audit/cleanup": {
@@ -910,9 +854,7 @@
           }
         ],
         "summary": "Manually cleanup old audit logs (admin only)",
-        "tags": [
-          "Audit Logs"
-        ]
+        "tags": ["Audit Logs"]
       }
     },
     "/api/v1/audit/retention/run": {
@@ -930,9 +872,7 @@
           }
         ],
         "summary": "Manually trigger log retention cleanup (admin only)",
-        "tags": [
-          "Audit Logs"
-        ]
+        "tags": ["Audit Logs"]
       }
     },
     "/api/v1/agreements": {
@@ -959,9 +899,7 @@
             "JWT-auth": []
           }
         ],
-        "tags": [
-          "Rent Agreements"
-        ]
+        "tags": ["Rent Agreements"]
       },
       "get": {
         "operationId": "Agreements_findAll",
@@ -1070,10 +1008,7 @@
               "default": "DESC",
               "example": "DESC",
               "type": "string",
-              "enum": [
-                "ASC",
-                "DESC"
-              ]
+              "enum": ["ASC", "DESC"]
             }
           }
         ],
@@ -1087,9 +1022,7 @@
             "JWT-auth": []
           }
         ],
-        "tags": [
-          "Rent Agreements"
-        ]
+        "tags": ["Rent Agreements"]
       }
     },
     "/api/v1/agreements/{id}/download": {
@@ -1115,9 +1048,7 @@
             "JWT-auth": []
           }
         ],
-        "tags": [
-          "Rent Agreements"
-        ]
+        "tags": ["Rent Agreements"]
       }
     },
     "/api/v1/agreements/{id}/fees": {
@@ -1157,9 +1088,7 @@
           }
         ],
         "summary": "Lease fee snapshot",
-        "tags": [
-          "Rent Agreements"
-        ]
+        "tags": ["Rent Agreements"]
       }
     },
     "/api/v1/agreements/{id}": {
@@ -1185,9 +1114,7 @@
             "JWT-auth": []
           }
         ],
-        "tags": [
-          "Rent Agreements"
-        ]
+        "tags": ["Rent Agreements"]
       },
       "put": {
         "operationId": "Agreements_update",
@@ -1221,9 +1148,7 @@
             "JWT-auth": []
           }
         ],
-        "tags": [
-          "Rent Agreements"
-        ]
+        "tags": ["Rent Agreements"]
       },
       "patch": {
         "description": "Same payload rules as PUT; use for partial updates.",
@@ -1259,9 +1184,7 @@
           }
         ],
         "summary": "Partially update agreement",
-        "tags": [
-          "Rent Agreements"
-        ]
+        "tags": ["Rent Agreements"]
       },
       "delete": {
         "operationId": "Agreements_terminate",
@@ -1295,9 +1218,7 @@
             "JWT-auth": []
           }
         ],
-        "tags": [
-          "Rent Agreements"
-        ]
+        "tags": ["Rent Agreements"]
       }
     },
     "/api/v1/agreements/{id}/renew": {
@@ -1335,9 +1256,7 @@
           }
         ],
         "summary": "Renew lease term",
-        "tags": [
-          "Rent Agreements"
-        ]
+        "tags": ["Rent Agreements"]
       }
     },
     "/api/v1/agreements/{id}/pay": {
@@ -1373,9 +1292,7 @@
             "JWT-auth": []
           }
         ],
-        "tags": [
-          "Rent Agreements"
-        ]
+        "tags": ["Rent Agreements"]
       }
     },
     "/api/v1/agreements/{id}/payments": {
@@ -1403,9 +1320,7 @@
           }
         ],
         "summary": "List payments for an agreement",
-        "tags": [
-          "Payments"
-        ]
+        "tags": ["Payments"]
       }
     },
     "/api/v1/agreements/nfts/mint": {
@@ -1427,9 +1342,7 @@
             "description": ""
           }
         },
-        "tags": [
-          "AgreementNft"
-        ]
+        "tags": ["AgreementNft"]
       }
     },
     "/api/v1/agreements/nfts/transfer": {
@@ -1451,9 +1364,7 @@
             "description": ""
           }
         },
-        "tags": [
-          "AgreementNft"
-        ]
+        "tags": ["AgreementNft"]
       }
     },
     "/api/v1/agreements/nfts/agreement/{agreementId}": {
@@ -1474,9 +1385,7 @@
             "description": ""
           }
         },
-        "tags": [
-          "AgreementNft"
-        ]
+        "tags": ["AgreementNft"]
       }
     },
     "/api/v1/agreements/nfts/owner/{ownerAddress}": {
@@ -1497,9 +1406,7 @@
             "description": ""
           }
         },
-        "tags": [
-          "AgreementNft"
-        ]
+        "tags": ["AgreementNft"]
       }
     },
     "/api/v1/agreements/nfts/analytics": {
@@ -1511,9 +1418,7 @@
             "description": ""
           }
         },
-        "tags": [
-          "AgreementNft"
-        ]
+        "tags": ["AgreementNft"]
       }
     },
     "/api/v1/agreements/nfts/analytics/owner/{ownerAddress}": {
@@ -1534,9 +1439,7 @@
             "description": ""
           }
         },
-        "tags": [
-          "AgreementNft"
-        ]
+        "tags": ["AgreementNft"]
       }
     },
     "/api/v1/agreements/nfts/sync/{agreementId}": {
@@ -1557,9 +1460,7 @@
             "description": ""
           }
         },
-        "tags": [
-          "AgreementNft"
-        ]
+        "tags": ["AgreementNft"]
       }
     },
     "/api/v1/reviews": {
@@ -1586,9 +1487,7 @@
           }
         },
         "summary": "Create a review",
-        "tags": [
-          "Reviews"
-        ]
+        "tags": ["Reviews"]
       },
       "get": {
         "operationId": "Reviews_getMyReviews",
@@ -1632,9 +1531,7 @@
           }
         },
         "summary": "Get reviews for the authenticated user with pagination and filters",
-        "tags": [
-          "Reviews"
-        ]
+        "tags": ["Reviews"]
       }
     },
     "/api/v1/reviews/user/{userId}": {
@@ -1657,9 +1554,7 @@
           }
         },
         "summary": "Get reviews for a user",
-        "tags": [
-          "Reviews"
-        ]
+        "tags": ["Reviews"]
       }
     },
     "/api/v1/reviews/property/{propertyId}": {
@@ -1682,9 +1577,7 @@
           }
         },
         "summary": "Get reviews for a property",
-        "tags": [
-          "Reviews"
-        ]
+        "tags": ["Reviews"]
       }
     },
     "/api/v1/reviews/report/{reviewId}": {
@@ -1720,9 +1613,7 @@
           }
         },
         "summary": "Report a review",
-        "tags": [
-          "Reviews"
-        ]
+        "tags": ["Reviews"]
       }
     },
     "/api/v1/reviews/guest": {
@@ -1744,9 +1635,7 @@
             "description": ""
           }
         },
-        "tags": [
-          "Reviews"
-        ]
+        "tags": ["Reviews"]
       }
     },
     "/api/v1/reviews/host": {
@@ -1768,9 +1657,7 @@
             "description": ""
           }
         },
-        "tags": [
-          "Reviews"
-        ]
+        "tags": ["Reviews"]
       }
     },
     "/api/v1/reviews/guest/{userId}": {
@@ -1791,9 +1678,7 @@
             "description": ""
           }
         },
-        "tags": [
-          "Reviews"
-        ]
+        "tags": ["Reviews"]
       }
     },
     "/api/v1/reviews/host/{userId}": {
@@ -1814,9 +1699,7 @@
             "description": ""
           }
         },
-        "tags": [
-          "Reviews"
-        ]
+        "tags": ["Reviews"]
       }
     },
     "/api/v1/reviews/reputation/{userId}": {
@@ -1837,9 +1720,7 @@
             "description": ""
           }
         },
-        "tags": [
-          "Reviews"
-        ]
+        "tags": ["Reviews"]
       }
     },
     "/api/v1/reviews/{id}": {
@@ -1870,9 +1751,7 @@
             "description": ""
           }
         },
-        "tags": [
-          "Reviews"
-        ]
+        "tags": ["Reviews"]
       },
       "delete": {
         "operationId": "Reviews_deleteReview",
@@ -1891,9 +1770,7 @@
             "description": ""
           }
         },
-        "tags": [
-          "Reviews"
-        ]
+        "tags": ["Reviews"]
       }
     },
     "/api/v1/stellar/accounts": {
@@ -1926,9 +1803,7 @@
           }
         },
         "summary": "Create a managed Stellar account",
-        "tags": [
-          "Stellar"
-        ]
+        "tags": ["Stellar"]
       }
     },
     "/api/v1/stellar/accounts/{id}": {
@@ -1960,9 +1835,7 @@
           }
         },
         "summary": "Get account by ID",
-        "tags": [
-          "Stellar"
-        ]
+        "tags": ["Stellar"]
       }
     },
     "/api/v1/stellar/accounts/public-key/{publicKey}": {
@@ -1983,9 +1856,7 @@
             "description": ""
           }
         },
-        "tags": [
-          "Stellar"
-        ]
+        "tags": ["Stellar"]
       }
     },
     "/api/v1/stellar/accounts/user/{userId}": {
@@ -2006,9 +1877,7 @@
             "description": ""
           }
         },
-        "tags": [
-          "Stellar"
-        ]
+        "tags": ["Stellar"]
       }
     },
     "/api/v1/stellar/accounts/fund": {
@@ -2031,9 +1900,7 @@
           }
         },
         "summary": "Fund account via Friendbot (testnet only)",
-        "tags": [
-          "Stellar"
-        ]
+        "tags": ["Stellar"]
       }
     },
     "/api/v1/stellar/accounts/{publicKey}/sync": {
@@ -2054,9 +1921,7 @@
             "description": ""
           }
         },
-        "tags": [
-          "Stellar"
-        ]
+        "tags": ["Stellar"]
       }
     },
     "/api/v1/stellar/accounts/{publicKey}/network": {
@@ -2077,9 +1942,7 @@
             "description": ""
           }
         },
-        "tags": [
-          "Stellar"
-        ]
+        "tags": ["Stellar"]
       }
     },
     "/api/v1/stellar/payments": {
@@ -2112,9 +1975,7 @@
           }
         },
         "summary": "Send a Stellar payment",
-        "tags": [
-          "Stellar"
-        ]
+        "tags": ["Stellar"]
       }
     },
     "/api/v1/stellar/transactions": {
@@ -2126,9 +1987,7 @@
             "description": ""
           }
         },
-        "tags": [
-          "Stellar"
-        ]
+        "tags": ["Stellar"]
       }
     },
     "/api/v1/stellar/transactions/{id}": {
@@ -2149,9 +2008,7 @@
             "description": ""
           }
         },
-        "tags": [
-          "Stellar"
-        ]
+        "tags": ["Stellar"]
       }
     },
     "/api/v1/stellar/transactions/hash/{hash}": {
@@ -2172,9 +2029,7 @@
             "description": ""
           }
         },
-        "tags": [
-          "Stellar"
-        ]
+        "tags": ["Stellar"]
       }
     },
     "/api/v1/stellar/escrow": {
@@ -2207,9 +2062,7 @@
           }
         },
         "summary": "Create an escrow",
-        "tags": [
-          "Stellar"
-        ]
+        "tags": ["Stellar"]
       }
     },
     "/api/v1/stellar/escrow/release": {
@@ -2231,9 +2084,7 @@
             "description": ""
           }
         },
-        "tags": [
-          "Stellar"
-        ]
+        "tags": ["Stellar"]
       }
     },
     "/api/v1/stellar/escrow/refund": {
@@ -2255,9 +2106,7 @@
             "description": ""
           }
         },
-        "tags": [
-          "Stellar"
-        ]
+        "tags": ["Stellar"]
       }
     },
     "/api/v1/stellar/escrow/{id}": {
@@ -2278,9 +2127,7 @@
             "description": ""
           }
         },
-        "tags": [
-          "Stellar"
-        ]
+        "tags": ["Stellar"]
       }
     },
     "/api/v1/stellar/escrows": {
@@ -2292,9 +2139,7 @@
             "description": ""
           }
         },
-        "tags": [
-          "Stellar"
-        ]
+        "tags": ["Stellar"]
       }
     },
     "/api/v1/stellar/escrow/multi-sig": {
@@ -2317,9 +2162,7 @@
           }
         },
         "summary": "Create a multi-signature escrow",
-        "tags": [
-          "Stellar"
-        ]
+        "tags": ["Stellar"]
       }
     },
     "/api/v1/stellar/escrow/signature": {
@@ -2342,9 +2185,7 @@
           }
         },
         "summary": "Add signature to multi-sig escrow",
-        "tags": [
-          "Stellar"
-        ]
+        "tags": ["Stellar"]
       }
     },
     "/api/v1/stellar/escrow/release-with-signatures": {
@@ -2367,9 +2208,7 @@
           }
         },
         "summary": "Release escrow with multi-signatures",
-        "tags": [
-          "Stellar"
-        ]
+        "tags": ["Stellar"]
       }
     },
     "/api/v1/stellar/escrow/time-locked": {
@@ -2392,9 +2231,7 @@
           }
         },
         "summary": "Create a time-locked escrow",
-        "tags": [
-          "Stellar"
-        ]
+        "tags": ["Stellar"]
       }
     },
     "/api/v1/stellar/escrow/{escrowId}/time-lock-status": {
@@ -2416,9 +2253,7 @@
           }
         },
         "summary": "Check if time-lock conditions are met",
-        "tags": [
-          "Stellar"
-        ]
+        "tags": ["Stellar"]
       }
     },
     "/api/v1/stellar/escrow/conditional": {
@@ -2441,9 +2276,7 @@
           }
         },
         "summary": "Create a conditional escrow",
-        "tags": [
-          "Stellar"
-        ]
+        "tags": ["Stellar"]
       }
     },
     "/api/v1/stellar/escrow/{escrowId}/conditions": {
@@ -2465,9 +2298,7 @@
           }
         },
         "summary": "Validate all escrow conditions",
-        "tags": [
-          "Stellar"
-        ]
+        "tags": ["Stellar"]
       }
     },
     "/api/v1/stellar/escrow/integrate-dispute": {
@@ -2490,9 +2321,7 @@
           }
         },
         "summary": "Integrate escrow with dispute resolution",
-        "tags": [
-          "Stellar"
-        ]
+        "tags": ["Stellar"]
       }
     },
     "/api/v1/stellar/escrow/release-dispute-resolution": {
@@ -2515,9 +2344,7 @@
           }
         },
         "summary": "Release escrow based on dispute outcome",
-        "tags": [
-          "Stellar"
-        ]
+        "tags": ["Stellar"]
       }
     },
     "/api/v1/anchor/deposit": {
@@ -2552,9 +2379,7 @@
           }
         ],
         "summary": "Initiate fiat deposit",
-        "tags": [
-          "Anchor"
-        ]
+        "tags": ["Anchor"]
       }
     },
     "/api/v1/anchor/withdraw": {
@@ -2589,9 +2414,7 @@
           }
         ],
         "summary": "Initiate fiat withdrawal",
-        "tags": [
-          "Anchor"
-        ]
+        "tags": ["Anchor"]
       }
     },
     "/api/v1/anchor/transactions": {
@@ -2605,10 +2428,7 @@
             "description": "Filter by anchor transaction type",
             "schema": {
               "type": "string",
-              "enum": [
-                "deposit",
-                "withdrawal"
-              ]
+              "enum": ["deposit", "withdrawal"]
             }
           },
           {
@@ -2694,9 +2514,7 @@
           }
         ],
         "summary": "[Admin] List anchor transactions",
-        "tags": [
-          "Anchor"
-        ]
+        "tags": ["Anchor"]
       }
     },
     "/api/v1/anchor/transactions/stats": {
@@ -2717,9 +2535,7 @@
           }
         ],
         "summary": "[Admin] Get anchor transaction statistics",
-        "tags": [
-          "Anchor"
-        ]
+        "tags": ["Anchor"]
       }
     },
     "/api/v1/anchor/transactions/{id}": {
@@ -2750,9 +2566,7 @@
           }
         ],
         "summary": "Get anchor transaction status",
-        "tags": [
-          "Anchor"
-        ]
+        "tags": ["Anchor"]
       }
     },
     "/api/v1/anchor/webhook": {
@@ -2771,9 +2585,7 @@
           }
         ],
         "summary": "Anchor webhook",
-        "tags": [
-          "Anchor"
-        ]
+        "tags": ["Anchor"]
       }
     },
     "/api/v1/v1/indexed-transactions": {
@@ -2787,12 +2599,7 @@
             "description": "Filter by derived indexing status",
             "schema": {
               "type": "string",
-              "enum": [
-                "pending",
-                "indexed",
-                "confirmed",
-                "failed"
-              ]
+              "enum": ["pending", "indexed", "confirmed", "failed"]
             }
           },
           {
@@ -2861,9 +2668,7 @@
           }
         ],
         "summary": "[Admin] List indexed transactions",
-        "tags": [
-          "Indexed Transactions"
-        ]
+        "tags": ["Indexed Transactions"]
       }
     },
     "/api/v1/v1/indexed-transactions/stats": {
@@ -2884,9 +2689,7 @@
           }
         ],
         "summary": "[Admin] Get indexed transaction statistics",
-        "tags": [
-          "Indexed Transactions"
-        ]
+        "tags": ["Indexed Transactions"]
       }
     },
     "/api/v1/v1/indexed-transactions/{id}": {
@@ -2917,9 +2720,7 @@
           }
         ],
         "summary": "[Admin] Get indexed transaction detail",
-        "tags": [
-          "Indexed Transactions"
-        ]
+        "tags": ["Indexed Transactions"]
       }
     },
     "/api/v1/agents/registry/register": {
@@ -2947,9 +2748,7 @@
           }
         ],
         "summary": "Register agent on-chain",
-        "tags": [
-          "Agent Registry"
-        ]
+        "tags": ["Agent Registry"]
       }
     },
     "/api/v1/agents/registry/verify": {
@@ -2977,9 +2776,7 @@
           }
         ],
         "summary": "[Admin] Verify agent on-chain",
-        "tags": [
-          "Agent Registry"
-        ]
+        "tags": ["Agent Registry"]
       }
     },
     "/api/v1/agents/registry/rate": {
@@ -3007,9 +2804,7 @@
           }
         ],
         "summary": "Rate agent after transaction completion",
-        "tags": [
-          "Agent Registry"
-        ]
+        "tags": ["Agent Registry"]
       }
     },
     "/api/v1/agents/registry/{agentAddress}": {
@@ -3036,9 +2831,7 @@
           }
         ],
         "summary": "Get agent information from blockchain",
-        "tags": [
-          "Agent Registry"
-        ]
+        "tags": ["Agent Registry"]
       }
     },
     "/api/v1/agents/registry": {
@@ -3056,9 +2849,7 @@
           }
         ],
         "summary": "Get total agent count",
-        "tags": [
-          "Agent Registry"
-        ]
+        "tags": ["Agent Registry"]
       }
     },
     "/api/v1/agents/registry/transactions/register": {
@@ -3086,9 +2877,7 @@
           }
         ],
         "summary": "Register transaction for agent",
-        "tags": [
-          "Agent Registry"
-        ]
+        "tags": ["Agent Registry"]
       }
     },
     "/api/v1/agents/registry/transactions/{agentAddress}": {
@@ -3115,9 +2904,7 @@
           }
         ],
         "summary": "Get transactions for an agent",
-        "tags": [
-          "Agent Registry"
-        ]
+        "tags": ["Agent Registry"]
       }
     },
     "/api/v1/stellar/disputes/arbiters/register": {
@@ -3140,9 +2927,7 @@
           }
         },
         "summary": "Register a new arbiter",
-        "tags": [
-          "Dispute Resolution"
-        ]
+        "tags": ["Dispute Resolution"]
       }
     },
     "/api/v1/stellar/disputes/arbiters/deregister": {
@@ -3165,9 +2950,7 @@
           }
         },
         "summary": "Deregister an arbiter",
-        "tags": [
-          "Dispute Resolution"
-        ]
+        "tags": ["Dispute Resolution"]
       }
     },
     "/api/v1/stellar/disputes/arbiters/pool": {
@@ -3190,9 +2973,7 @@
           }
         },
         "summary": "Get all active arbiters",
-        "tags": [
-          "Dispute Resolution"
-        ]
+        "tags": ["Dispute Resolution"]
       }
     },
     "/api/v1/stellar/disputes/arbiters/select": {
@@ -3215,9 +2996,7 @@
           }
         },
         "summary": "Select arbiters for a dispute",
-        "tags": [
-          "Dispute Resolution"
-        ]
+        "tags": ["Dispute Resolution"]
       }
     },
     "/api/v1/stellar/disputes/arbiters/{address}": {
@@ -3239,9 +3018,7 @@
           }
         },
         "summary": "Get arbiter information",
-        "tags": [
-          "Dispute Resolution"
-        ]
+        "tags": ["Dispute Resolution"]
       }
     },
     "/api/v1/stellar/disputes/arbiters/{address}/reputation": {
@@ -3270,9 +3047,7 @@
           }
         },
         "summary": "Get arbiter reputation score",
-        "tags": [
-          "Dispute Resolution"
-        ]
+        "tags": ["Dispute Resolution"]
       }
     },
     "/api/v1/stellar/disputes/votes/track": {
@@ -3295,9 +3070,7 @@
           }
         },
         "summary": "Track a vote on a dispute",
-        "tags": [
-          "Dispute Resolution"
-        ]
+        "tags": ["Dispute Resolution"]
       }
     },
     "/api/v1/stellar/disputes/votes/cast": {
@@ -3320,9 +3093,7 @@
           }
         },
         "summary": "Cast a vote on blockchain",
-        "tags": [
-          "Dispute Resolution"
-        ]
+        "tags": ["Dispute Resolution"]
       }
     },
     "/api/v1/stellar/disputes/{disputeId}/votes": {
@@ -3351,9 +3122,7 @@
           }
         },
         "summary": "Get vote results for a dispute",
-        "tags": [
-          "Dispute Resolution"
-        ]
+        "tags": ["Dispute Resolution"]
       }
     },
     "/api/v1/stellar/disputes/resolve": {
@@ -3376,9 +3145,7 @@
           }
         },
         "summary": "Resolve a dispute on blockchain",
-        "tags": [
-          "Dispute Resolution"
-        ]
+        "tags": ["Dispute Resolution"]
       }
     },
     "/api/v1/stellar/disputes/enforce": {
@@ -3408,9 +3175,7 @@
           }
         },
         "summary": "Enforce dispute resolution",
-        "tags": [
-          "Dispute Resolution"
-        ]
+        "tags": ["Dispute Resolution"]
       }
     },
     "/api/v1/stellar/disputes/{disputeId}": {
@@ -3432,9 +3197,7 @@
           }
         },
         "summary": "Get dispute information",
-        "tags": [
-          "Dispute Resolution"
-        ]
+        "tags": ["Dispute Resolution"]
       }
     },
     "/api/v1/stellar/disputes/{disputeId}/timeline": {
@@ -3463,9 +3226,7 @@
           }
         },
         "summary": "Get dispute event timeline",
-        "tags": [
-          "Dispute Resolution"
-        ]
+        "tags": ["Dispute Resolution"]
       }
     },
     "/api/v1/stellar/payment-processing/rent": {
@@ -3488,9 +3249,7 @@
           }
         },
         "summary": "Process rent payment",
-        "tags": [
-          "Payment Processing"
-        ]
+        "tags": ["Payment Processing"]
       }
     },
     "/api/v1/stellar/payment-processing/fee-collector": {
@@ -3513,9 +3272,7 @@
           }
         },
         "summary": "Set platform fee collector",
-        "tags": [
-          "Payment Processing"
-        ]
+        "tags": ["Payment Processing"]
       }
     },
     "/api/v1/stellar/payment-processing/count": {
@@ -3528,9 +3285,7 @@
           }
         },
         "summary": "Get total payment count",
-        "tags": [
-          "Payment Processing"
-        ]
+        "tags": ["Payment Processing"]
       }
     },
     "/api/v1/stellar/payment-processing/total-paid/{agreementId}": {
@@ -3552,9 +3307,7 @@
           }
         },
         "summary": "Get total amount paid for a specific agreement",
-        "tags": [
-          "Payment Processing"
-        ]
+        "tags": ["Payment Processing"]
       }
     },
     "/api/v1/property-registry/register": {
@@ -3585,9 +3338,7 @@
             "description": ""
           }
         },
-        "tags": [
-          "PropertyRegistry"
-        ]
+        "tags": ["PropertyRegistry"]
       }
     },
     "/api/v1/property-registry/transfer": {
@@ -3609,9 +3360,7 @@
             "description": ""
           }
         },
-        "tags": [
-          "PropertyRegistry"
-        ]
+        "tags": ["PropertyRegistry"]
       }
     },
     "/api/v1/property-registry/verify": {
@@ -3633,9 +3382,7 @@
             "description": ""
           }
         },
-        "tags": [
-          "PropertyRegistry"
-        ]
+        "tags": ["PropertyRegistry"]
       }
     },
     "/api/v1/property-registry/{id}": {
@@ -3656,9 +3403,7 @@
             "description": ""
           }
         },
-        "tags": [
-          "PropertyRegistry"
-        ]
+        "tags": ["PropertyRegistry"]
       }
     },
     "/api/v1/property-registry/stats/count": {
@@ -3670,9 +3415,7 @@
             "description": ""
           }
         },
-        "tags": [
-          "PropertyRegistry"
-        ]
+        "tags": ["PropertyRegistry"]
       }
     },
     "/api/v1/property-registry/{id}/history": {
@@ -3693,9 +3436,7 @@
             "description": ""
           }
         },
-        "tags": [
-          "PropertyRegistry"
-        ]
+        "tags": ["PropertyRegistry"]
       }
     },
     "/api/v1/developer/webhooks": {
@@ -3724,9 +3465,7 @@
           }
         ],
         "summary": "Register a webhook endpoint",
-        "tags": [
-          "Developer Webhooks"
-        ]
+        "tags": ["Developer Webhooks"]
       },
       "get": {
         "operationId": "Webhooks_list",
@@ -3742,9 +3481,7 @@
           }
         ],
         "summary": "List your webhook endpoints",
-        "tags": [
-          "Developer Webhooks"
-        ]
+        "tags": ["Developer Webhooks"]
       }
     },
     "/api/v1/developer/webhooks/{id}/deliveries": {
@@ -3775,9 +3512,7 @@
           }
         ],
         "summary": "View delivery history for a webhook endpoint",
-        "tags": [
-          "Developer Webhooks"
-        ]
+        "tags": ["Developer Webhooks"]
       }
     },
     "/api/v1/developer/webhooks/{id}": {
@@ -3818,9 +3553,7 @@
           }
         ],
         "summary": "Update a webhook endpoint",
-        "tags": [
-          "Developer Webhooks"
-        ]
+        "tags": ["Developer Webhooks"]
       },
       "delete": {
         "operationId": "Webhooks_remove",
@@ -3849,9 +3582,7 @@
           }
         ],
         "summary": "Delete a webhook endpoint",
-        "tags": [
-          "Developer Webhooks"
-        ]
+        "tags": ["Developer Webhooks"]
       }
     },
     "/api/v1/developer/webhooks/{id}/test": {
@@ -3893,9 +3624,7 @@
           }
         ],
         "summary": "Send a test event to a webhook endpoint",
-        "tags": [
-          "Developer Webhooks"
-        ]
+        "tags": ["Developer Webhooks"]
       }
     },
     "/api/v1/developer/webhooks/{id}/retry": {
@@ -3940,9 +3669,7 @@
           }
         ],
         "summary": "Retry a webhook delivery",
-        "tags": [
-          "Developer Webhooks"
-        ]
+        "tags": ["Developer Webhooks"]
       }
     },
     "/api/v1/auth/register": {
@@ -3993,9 +3720,7 @@
           }
         },
         "summary": "Register a new user",
-        "tags": [
-          "Authentication"
-        ]
+        "tags": ["Authentication"]
       }
     },
     "/api/v1/auth/login": {
@@ -4036,9 +3761,7 @@
           }
         },
         "summary": "Login user",
-        "tags": [
-          "Authentication"
-        ]
+        "tags": ["Authentication"]
       }
     },
     "/api/v1/auth/login/mfa/complete": {
@@ -4079,9 +3802,7 @@
           }
         },
         "summary": "Complete MFA login",
-        "tags": [
-          "Authentication"
-        ]
+        "tags": ["Authentication"]
       }
     },
     "/api/v1/auth/refresh": {
@@ -4122,9 +3843,7 @@
           }
         },
         "summary": "Refresh access token",
-        "tags": [
-          "Authentication"
-        ]
+        "tags": ["Authentication"]
       }
     },
     "/api/v1/auth/logout": {
@@ -4160,9 +3879,7 @@
           }
         ],
         "summary": "Logout user",
-        "tags": [
-          "Authentication"
-        ]
+        "tags": ["Authentication"]
       }
     },
     "/api/v1/auth/forgot-password": {
@@ -4193,9 +3910,7 @@
           }
         },
         "summary": "Request password reset",
-        "tags": [
-          "Authentication"
-        ]
+        "tags": ["Authentication"]
       }
     },
     "/api/v1/auth/reset-password": {
@@ -4236,9 +3951,7 @@
           }
         },
         "summary": "Reset password",
-        "tags": [
-          "Authentication"
-        ]
+        "tags": ["Authentication"]
       }
     },
     "/api/v1/auth/verify-email": {
@@ -4280,9 +3993,7 @@
           }
         },
         "summary": "Verify email with token",
-        "tags": [
-          "Authentication"
-        ]
+        "tags": ["Authentication"]
       }
     },
     "/api/v1/auth/resend-verification": {
@@ -4318,9 +4029,7 @@
           }
         ],
         "summary": "Resend email verification link",
-        "tags": [
-          "Authentication"
-        ]
+        "tags": ["Authentication"]
       }
     },
     "/api/v1/auth/complete-profile": {
@@ -4366,9 +4075,7 @@
           }
         ],
         "summary": "Attach an email to a wallet-only account",
-        "tags": [
-          "Authentication"
-        ]
+        "tags": ["Authentication"]
       }
     },
     "/api/v1/auth/mfa/enable": {
@@ -4407,9 +4114,7 @@
           }
         ],
         "summary": "Enable MFA",
-        "tags": [
-          "Authentication"
-        ]
+        "tags": ["Authentication"]
       }
     },
     "/api/v1/auth/mfa/verify": {
@@ -4448,9 +4153,7 @@
           }
         ],
         "summary": "Verify MFA token",
-        "tags": [
-          "Authentication"
-        ]
+        "tags": ["Authentication"]
       }
     },
     "/api/v1/auth/mfa/disable": {
@@ -4479,9 +4182,7 @@
           }
         ],
         "summary": "Disable MFA",
-        "tags": [
-          "Authentication"
-        ]
+        "tags": ["Authentication"]
       }
     },
     "/api/v1/auth/mfa/backup-codes": {
@@ -4510,9 +4211,7 @@
           }
         ],
         "summary": "Regenerate backup codes",
-        "tags": [
-          "Authentication"
-        ]
+        "tags": ["Authentication"]
       }
     },
     "/api/v1/auth/mfa/status": {
@@ -4531,9 +4230,7 @@
           }
         ],
         "summary": "Get MFA status",
-        "tags": [
-          "Authentication"
-        ]
+        "tags": ["Authentication"]
       }
     },
     "/api/v1/auth/stellar/challenge": {
@@ -4570,9 +4267,7 @@
           }
         },
         "summary": "Generate Stellar authentication challenge",
-        "tags": [
-          "Stellar Authentication"
-        ]
+        "tags": ["Stellar Authentication"]
       }
     },
     "/api/v1/auth/stellar/verify": {
@@ -4612,9 +4307,7 @@
           }
         },
         "summary": "Verify Stellar signature and authenticate",
-        "tags": [
-          "Stellar Authentication"
-        ]
+        "tags": ["Stellar Authentication"]
       }
     },
     "/api/v1/auth/metrics/stats": {
@@ -4699,9 +4392,7 @@
           }
         ],
         "summary": "Get authentication statistics",
-        "tags": [
-          "Authentication Metrics"
-        ]
+        "tags": ["Authentication Metrics"]
       }
     },
     "/api/v1/auth/metrics/performance": {
@@ -4763,9 +4454,7 @@
           }
         ],
         "summary": "Get authentication performance metrics",
-        "tags": [
-          "Authentication Metrics"
-        ]
+        "tags": ["Authentication Metrics"]
       }
     },
     "/api/v1/auth/metrics/hourly-usage": {
@@ -4821,9 +4510,7 @@
           }
         ],
         "summary": "Get hourly authentication usage",
-        "tags": [
-          "Authentication Metrics"
-        ]
+        "tags": ["Authentication Metrics"]
       }
     },
     "/api/v1/auth/metrics/health": {
@@ -4862,9 +4549,7 @@
           }
         ],
         "summary": "Get authentication system health",
-        "tags": [
-          "Authentication Metrics"
-        ]
+        "tags": ["Authentication Metrics"]
       }
     },
     "/api/v1/auth/oauth/authorize": {
@@ -4877,9 +4562,7 @@
           }
         },
         "summary": "Start OAuth2 authorization code flow",
-        "tags": [
-          "OAuth2 Authentication"
-        ]
+        "tags": ["OAuth2 Authentication"]
       }
     },
     "/api/v1/auth/oauth/callback": {
@@ -4902,9 +4585,7 @@
           }
         },
         "summary": "Complete OAuth2 callback and issue session tokens",
-        "tags": [
-          "OAuth2 Authentication"
-        ]
+        "tags": ["OAuth2 Authentication"]
       }
     },
     "/api/v1/auth/oauth/profile": {
@@ -4926,9 +4607,7 @@
           }
         },
         "summary": "Fetch user profile from OAuth2 provider",
-        "tags": [
-          "OAuth2 Authentication"
-        ]
+        "tags": ["OAuth2 Authentication"]
       }
     },
     "/api/v1/auth/oauth/link": {
@@ -4956,9 +4635,7 @@
           }
         ],
         "summary": "Link an OAuth2 provider to the current account",
-        "tags": [
-          "OAuth2 Authentication"
-        ]
+        "tags": ["OAuth2 Authentication"]
       }
     },
     "/api/v1/auth/oauth/link/authorize": {
@@ -4986,9 +4663,7 @@
           }
         ],
         "summary": "Start OAuth2 flow for account linking",
-        "tags": [
-          "OAuth2 Authentication"
-        ]
+        "tags": ["OAuth2 Authentication"]
       }
     },
     "/api/v1/auth/oauth/logout": {
@@ -5006,9 +4681,7 @@
           }
         ],
         "summary": "Logout and revoke OAuth2 provider tokens",
-        "tags": [
-          "OAuth2 Authentication"
-        ]
+        "tags": ["OAuth2 Authentication"]
       }
     },
     "/api/v1/auth/oauth/revoke": {
@@ -5031,9 +4704,7 @@
           }
         },
         "summary": "Revoke an OAuth2 provider token",
-        "tags": [
-          "OAuth2 Authentication"
-        ]
+        "tags": ["OAuth2 Authentication"]
       }
     },
     "/api/v1/notifications": {
@@ -5078,9 +4749,7 @@
             "description": ""
           }
         },
-        "tags": [
-          "Notifications"
-        ]
+        "tags": ["Notifications"]
       }
     },
     "/api/v1/notifications/unread/count": {
@@ -5092,9 +4761,7 @@
             "description": ""
           }
         },
-        "tags": [
-          "Notifications"
-        ]
+        "tags": ["Notifications"]
       }
     },
     "/api/v1/notifications/{id}/read": {
@@ -5115,9 +4782,7 @@
             "description": ""
           }
         },
-        "tags": [
-          "Notifications"
-        ]
+        "tags": ["Notifications"]
       }
     },
     "/api/v1/notifications/read-all": {
@@ -5129,9 +4794,7 @@
             "description": ""
           }
         },
-        "tags": [
-          "Notifications"
-        ]
+        "tags": ["Notifications"]
       }
     },
     "/api/v1/notifications/{id}": {
@@ -5152,9 +4815,7 @@
             "description": ""
           }
         },
-        "tags": [
-          "Notifications"
-        ]
+        "tags": ["Notifications"]
       }
     },
     "/api/v1/notifications/clear-all": {
@@ -5166,9 +4827,7 @@
             "description": ""
           }
         },
-        "tags": [
-          "Notifications"
-        ]
+        "tags": ["Notifications"]
       }
     },
     "/api/v1/messaging/history": {
@@ -5191,9 +4850,7 @@
           }
         },
         "summary": "[Deprecated] Get chat history for a chat group",
-        "tags": [
-          "Messaging"
-        ]
+        "tags": ["Messaging"]
       }
     },
     "/api/v1/messaging/rooms": {
@@ -5215,9 +4872,7 @@
           }
         },
         "summary": "Get all chat rooms for the current user",
-        "tags": [
-          "Messaging"
-        ]
+        "tags": ["Messaging"]
       },
       "post": {
         "operationId": "Messaging_createRoom",
@@ -5228,9 +4883,7 @@
           }
         },
         "summary": "Create or find a direct message room",
-        "tags": [
-          "Messaging"
-        ]
+        "tags": ["Messaging"]
       }
     },
     "/api/v1/messaging/rooms/{roomId}/messages": {
@@ -5252,9 +4905,7 @@
           }
         },
         "summary": "Get messages for a room",
-        "tags": [
-          "Messaging"
-        ]
+        "tags": ["Messaging"]
       }
     },
     "/api/v1/messaging/rooms/{roomId}/read": {
@@ -5284,9 +4935,7 @@
           }
         },
         "summary": "Mark all messages in a room as read",
-        "tags": [
-          "Messaging"
-        ]
+        "tags": ["Messaging"]
       }
     },
     "/api/v1/metrics": {
@@ -5298,9 +4947,7 @@
             "description": ""
           }
         },
-        "tags": [
-          "Monitoring"
-        ]
+        "tags": ["Monitoring"]
       }
     },
     "/api/v1/cache/stats": {
@@ -5312,9 +4959,7 @@
             "description": ""
           }
         },
-        "tags": [
-          "Monitoring"
-        ]
+        "tags": ["Monitoring"]
       }
     },
     "/api/v1/api/database/health": {
@@ -5327,9 +4972,7 @@
           }
         },
         "summary": "Get database health snapshot",
-        "tags": [
-          "Monitoring"
-        ]
+        "tags": ["Monitoring"]
       }
     },
     "/api/v1/api/database/history": {
@@ -5352,9 +4995,7 @@
           }
         },
         "summary": "Get database health history",
-        "tags": [
-          "Monitoring"
-        ]
+        "tags": ["Monitoring"]
       }
     },
     "/api/v1/api/database/pool": {
@@ -5367,9 +5008,7 @@
           }
         },
         "summary": "Get database connection pool metrics",
-        "tags": [
-          "Monitoring"
-        ]
+        "tags": ["Monitoring"]
       }
     },
     "/api/v1/api/database/size": {
@@ -5382,9 +5021,7 @@
           }
         },
         "summary": "Get database size metrics",
-        "tags": [
-          "Monitoring"
-        ]
+        "tags": ["Monitoring"]
       }
     },
     "/api/v1/api/database/queries": {
@@ -5397,9 +5034,7 @@
           }
         },
         "summary": "Get database query performance metrics",
-        "tags": [
-          "Monitoring"
-        ]
+        "tags": ["Monitoring"]
       }
     },
     "/api/v1/api/alerts/webhook": {
@@ -5411,9 +5046,7 @@
             "description": ""
           }
         },
-        "tags": [
-          "Monitoring"
-        ]
+        "tags": ["Monitoring"]
       }
     },
     "/api/v1/api/performance/dashboard": {
@@ -5431,9 +5064,7 @@
           }
         ],
         "summary": "Get performance dashboard data",
-        "tags": [
-          "Performance Monitoring"
-        ]
+        "tags": ["Performance Monitoring"]
       }
     },
     "/api/v1/api/performance/database": {
@@ -5452,9 +5083,7 @@
           }
         ],
         "summary": "Get database query performance statistics",
-        "tags": [
-          "Performance Monitoring"
-        ]
+        "tags": ["Performance Monitoring"]
       }
     },
     "/api/v1/api/performance/endpoints": {
@@ -5472,9 +5101,7 @@
           }
         ],
         "summary": "Get performance statistics for all endpoints",
-        "tags": [
-          "Performance Monitoring"
-        ]
+        "tags": ["Performance Monitoring"]
       }
     },
     "/api/v1/api/performance/endpoint": {
@@ -5516,9 +5143,7 @@
           }
         ],
         "summary": "Get performance statistics for a specific endpoint",
-        "tags": [
-          "Performance Monitoring"
-        ]
+        "tags": ["Performance Monitoring"]
       }
     },
     "/api/v1/api/performance/system": {
@@ -5536,9 +5161,7 @@
           }
         ],
         "summary": "Get system performance metrics",
-        "tags": [
-          "Performance Monitoring"
-        ]
+        "tags": ["Performance Monitoring"]
       }
     },
     "/api/v1/api/performance/report": {
@@ -5556,9 +5179,7 @@
           }
         ],
         "summary": "Generate comprehensive performance report",
-        "tags": [
-          "Performance Monitoring"
-        ]
+        "tags": ["Performance Monitoring"]
       }
     },
     "/api/v1/api/performance/health-check": {
@@ -5576,9 +5197,7 @@
           }
         ],
         "summary": "Performance monitoring health check",
-        "tags": [
-          "Performance Monitoring"
-        ]
+        "tags": ["Performance Monitoring"]
       }
     },
     "/api/v1/api/performance/alerts": {
@@ -5607,9 +5226,7 @@
           }
         ],
         "summary": "Get recent performance alerts",
-        "tags": [
-          "Performance Monitoring"
-        ]
+        "tags": ["Performance Monitoring"]
       }
     },
     "/api/v1/api/performance/trends": {
@@ -5638,9 +5255,7 @@
           }
         ],
         "summary": "Get performance trends over time",
-        "tags": [
-          "Performance Monitoring"
-        ]
+        "tags": ["Performance Monitoring"]
       }
     },
     "/api/v1/api/performance/response-times": {
@@ -5669,9 +5284,7 @@
           }
         ],
         "summary": "Per-route response-time summary for a sliding window",
-        "tags": [
-          "Performance Monitoring"
-        ]
+        "tags": ["Performance Monitoring"]
       }
     },
     "/api/v1/api/performance/slow-endpoints": {
@@ -5710,9 +5323,7 @@
           }
         ],
         "summary": "Get the slowest API endpoints by average response time",
-        "tags": [
-          "Performance Monitoring"
-        ]
+        "tags": ["Performance Monitoring"]
       }
     },
     "/api/v1/api/performance/percentiles": {
@@ -5751,9 +5362,7 @@
           }
         ],
         "summary": "Get response-time percentile breakdown for all endpoints, or a specific one",
-        "tags": [
-          "Performance Monitoring"
-        ]
+        "tags": ["Performance Monitoring"]
       }
     },
     "/api/v1/storage/upload-url": {
@@ -5792,9 +5401,7 @@
           }
         ],
         "summary": "Get pre-signed upload URL",
-        "tags": [
-          "Storage"
-        ]
+        "tags": ["Storage"]
       }
     },
     "/api/v1/storage/download-url": {
@@ -5836,9 +5443,7 @@
           }
         ],
         "summary": "Get pre-signed download URL",
-        "tags": [
-          "Storage"
-        ]
+        "tags": ["Storage"]
       }
     },
     "/api/v1/storage": {
@@ -5867,9 +5472,7 @@
           }
         ],
         "summary": "List files",
-        "tags": [
-          "Storage"
-        ]
+        "tags": ["Storage"]
       },
       "patch": {
         "description": "Updates file metadata like file name for a given key.",
@@ -5912,9 +5515,7 @@
           }
         ],
         "summary": "Update file metadata",
-        "tags": [
-          "Storage"
-        ]
+        "tags": ["Storage"]
       },
       "delete": {
         "description": "Deletes a file from storage and removes its metadata.",
@@ -5940,9 +5541,7 @@
           }
         ],
         "summary": "Delete file",
-        "tags": [
-          "Storage"
-        ]
+        "tags": ["Storage"]
       }
     },
     "/api/v1/referrals/stats": {
@@ -5960,9 +5559,7 @@
           }
         ],
         "summary": "Get referral statistics for current user",
-        "tags": [
-          "Referrals"
-        ]
+        "tags": ["Referrals"]
       }
     },
     "/api/v1/referrals/code": {
@@ -5980,9 +5577,7 @@
           }
         ],
         "summary": "Get current user referral code",
-        "tags": [
-          "Referrals"
-        ]
+        "tags": ["Referrals"]
       }
     },
     "/api/v1/users/me": {
@@ -6003,9 +5598,7 @@
           }
         ],
         "summary": "Get current user profile",
-        "tags": [
-          "Users"
-        ]
+        "tags": ["Users"]
       },
       "put": {
         "operationId": "Users_updateProfile",
@@ -6037,9 +5630,7 @@
           }
         ],
         "summary": "Update current user profile",
-        "tags": [
-          "Users"
-        ]
+        "tags": ["Users"]
       },
       "delete": {
         "operationId": "Users_deleteAccount",
@@ -6058,9 +5649,7 @@
           }
         ],
         "summary": "Delete user account",
-        "tags": [
-          "Users"
-        ]
+        "tags": ["Users"]
       }
     },
     "/api/v1/users/me/email": {
@@ -6094,9 +5683,7 @@
           }
         ],
         "summary": "Change email address",
-        "tags": [
-          "Users"
-        ]
+        "tags": ["Users"]
       }
     },
     "/api/v1/users/me/password": {
@@ -6130,9 +5717,7 @@
           }
         ],
         "summary": "Change password",
-        "tags": [
-          "Users"
-        ]
+        "tags": ["Users"]
       }
     },
     "/api/v1/users/me/deactivate": {
@@ -6153,9 +5738,7 @@
           }
         ],
         "summary": "Deactivate user account",
-        "tags": [
-          "Users"
-        ]
+        "tags": ["Users"]
       }
     },
     "/api/v1/users/me/activity": {
@@ -6176,9 +5759,7 @@
           }
         ],
         "summary": "Get user activity history",
-        "tags": [
-          "Users"
-        ]
+        "tags": ["Users"]
       }
     },
     "/api/v1/users/me/export": {
@@ -6199,9 +5780,7 @@
           }
         ],
         "summary": "Export all user data (GDPR)",
-        "tags": [
-          "Users"
-        ]
+        "tags": ["Users"]
       }
     },
     "/api/v1/users/me/gdpr": {
@@ -6222,9 +5801,7 @@
           }
         ],
         "summary": "Delete user account and anonymize data (GDPR)",
-        "tags": [
-          "Users"
-        ]
+        "tags": ["Users"]
       }
     },
     "/api/v1/users/me/consent": {
@@ -6245,9 +5822,7 @@
           }
         ],
         "summary": "Update user consent preferences (GDPR)",
-        "tags": [
-          "Users"
-        ]
+        "tags": ["Users"]
       }
     },
     "/api/v1/users/me/privacy-settings": {
@@ -6268,9 +5843,7 @@
           }
         ],
         "summary": "Get user privacy settings (GDPR)",
-        "tags": [
-          "Users"
-        ]
+        "tags": ["Users"]
       }
     },
     "/api/v1/users/preferences": {
@@ -6291,9 +5864,7 @@
           }
         ],
         "summary": "Get user notification preferences",
-        "tags": [
-          "Users"
-        ]
+        "tags": ["Users"]
       },
       "patch": {
         "operationId": "Users_updatePreferences",
@@ -6322,9 +5893,7 @@
           }
         ],
         "summary": "Update user notification preferences",
-        "tags": [
-          "Users"
-        ]
+        "tags": ["Users"]
       }
     },
     "/api/v1/users/restore": {
@@ -6358,9 +5927,7 @@
           }
         ],
         "summary": "Restore soft-deleted user account",
-        "tags": [
-          "Users"
-        ]
+        "tags": ["Users"]
       }
     },
     "/api/v1/users/{id}/permanent": {
@@ -6393,9 +5960,7 @@
           }
         ],
         "summary": "Permanently delete user account (Admin only)",
-        "tags": [
-          "Users"
-        ]
+        "tags": ["Users"]
       }
     },
     "/api/v1/admin/users": {
@@ -6462,9 +6027,7 @@
           }
         ],
         "summary": "List users (admin)",
-        "tags": [
-          "Admin Users"
-        ]
+        "tags": ["Admin Users"]
       }
     },
     "/api/v1/admin/users/{id}/deactivate": {
@@ -6497,9 +6060,7 @@
           }
         ],
         "summary": "Suspend a user account (admin)",
-        "tags": [
-          "Admin Users"
-        ]
+        "tags": ["Admin Users"]
       }
     },
     "/api/v1/admin/users/{id}/verify": {
@@ -6532,9 +6093,7 @@
           }
         ],
         "summary": "Mark a user as verified (admin)",
-        "tags": [
-          "Admin Users"
-        ]
+        "tags": ["Admin Users"]
       }
     },
     "/api/v1/admin/users/{id}/restore": {
@@ -6567,9 +6126,7 @@
           }
         ],
         "summary": "Restore/reactivate a user account (admin)",
-        "tags": [
-          "Admin Users"
-        ]
+        "tags": ["Admin Users"]
       }
     },
     "/api/v1/properties": {
@@ -6658,12 +6215,10 @@
           }
         ],
         "summary": "Create a new property listing",
-        "tags": [
-          "Properties"
-        ]
+        "tags": ["Properties"]
       },
       "get": {
-        "description": "Retrieve a paginated list of property listings with optional filtering. By default, returns only published properties for public access.",
+        "description": "Browse listings tolerate brief replication lag",
         "operationId": "Properties_findAll",
         "parameters": [
           {
@@ -6674,13 +6229,7 @@
             "schema": {
               "example": "apartment",
               "type": "string",
-              "enum": [
-                "apartment",
-                "house",
-                "commercial",
-                "land",
-                "other"
-              ]
+              "enum": ["apartment", "house", "commercial", "land", "other"]
             }
           },
           {
@@ -6691,12 +6240,7 @@
             "schema": {
               "example": "published",
               "type": "string",
-              "enum": [
-                "draft",
-                "published",
-                "rented",
-                "archived"
-              ]
+              "enum": ["draft", "published", "rented", "archived"]
             }
           },
           {
@@ -6930,10 +6474,7 @@
               "default": "DESC",
               "example": "DESC",
               "type": "string",
-              "enum": [
-                "ASC",
-                "DESC"
-              ]
+              "enum": ["ASC", "DESC"]
             }
           }
         ],
@@ -7002,10 +6543,10 @@
             }
           }
         },
-        "summary": "List all properties",
-        "tags": [
-          "Properties"
-        ]
+        "summary": "",
+        "tags": ["Properties"],
+        "x-max-staleness": "30s",
+        "x-use-replica": true
       }
     },
     "/api/v1/properties/my-properties": {
@@ -7021,13 +6562,7 @@
             "schema": {
               "example": "apartment",
               "type": "string",
-              "enum": [
-                "apartment",
-                "house",
-                "commercial",
-                "land",
-                "other"
-              ]
+              "enum": ["apartment", "house", "commercial", "land", "other"]
             }
           },
           {
@@ -7038,12 +6573,7 @@
             "schema": {
               "example": "published",
               "type": "string",
-              "enum": [
-                "draft",
-                "published",
-                "rented",
-                "archived"
-              ]
+              "enum": ["draft", "published", "rented", "archived"]
             }
           },
           {
@@ -7277,10 +6807,7 @@
               "default": "DESC",
               "example": "DESC",
               "type": "string",
-              "enum": [
-                "ASC",
-                "DESC"
-              ]
+              "enum": ["ASC", "DESC"]
             }
           }
         ],
@@ -7355,9 +6882,7 @@
           }
         ],
         "summary": "List current user properties",
-        "tags": [
-          "Properties"
-        ]
+        "tags": ["Properties"]
       }
     },
     "/api/v1/properties/{id}/view": {
@@ -7442,9 +6967,7 @@
           }
         },
         "summary": "Record a property view",
-        "tags": [
-          "Properties"
-        ]
+        "tags": ["Properties"]
       }
     },
     "/api/v1/properties/{id}/favorite": {
@@ -7522,14 +7045,12 @@
           }
         },
         "summary": "Record a favorite",
-        "tags": [
-          "Properties"
-        ]
+        "tags": ["Properties"]
       }
     },
     "/api/v1/properties/{id}": {
       "get": {
-        "description": "Retrieve detailed information about a specific property by its ID. Only published properties are publicly accessible.",
+        "description": "Property detail view tolerates brief replication lag",
         "operationId": "Properties_findOne",
         "parameters": [
           {
@@ -7601,10 +7122,10 @@
             }
           }
         },
-        "summary": "Get a specific property",
-        "tags": [
-          "Properties"
-        ]
+        "summary": "",
+        "tags": ["Properties"],
+        "x-max-staleness": "30s",
+        "x-use-replica": true
       },
       "patch": {
         "description": "Update an existing property. Only the owner or admin can update a property.",
@@ -7674,9 +7195,7 @@
           }
         ],
         "summary": "Update a property",
-        "tags": [
-          "Properties"
-        ]
+        "tags": ["Properties"]
       },
       "delete": {
         "description": "Delete a property listing. Only the owner or admin can delete a property.",
@@ -7743,9 +7262,7 @@
           }
         ],
         "summary": "Delete a property",
-        "tags": [
-          "Properties"
-        ]
+        "tags": ["Properties"]
       }
     },
     "/api/v1/properties/{id}/publish": {
@@ -7807,9 +7324,7 @@
           }
         ],
         "summary": "Publish a property",
-        "tags": [
-          "Properties"
-        ]
+        "tags": ["Properties"]
       }
     },
     "/api/v1/properties/{id}/archive": {
@@ -7878,9 +7393,7 @@
           }
         ],
         "summary": "Archive a property",
-        "tags": [
-          "Properties"
-        ]
+        "tags": ["Properties"]
       }
     },
     "/api/v1/properties/{id}/mark-rented": {
@@ -7949,9 +7462,7 @@
           }
         ],
         "summary": "Mark a property as rented",
-        "tags": [
-          "Properties"
-        ]
+        "tags": ["Properties"]
       }
     },
     "/api/v1/properties/property-listings/wizard/start": {
@@ -8040,9 +7551,7 @@
           }
         ],
         "summary": "Start property listing wizard",
-        "tags": [
-          "Properties"
-        ]
+        "tags": ["Properties"]
       }
     },
     "/api/v1/properties/property-listings/wizard/{id}/step": {
@@ -8140,9 +7649,7 @@
           }
         ],
         "summary": "Update a wizard step",
-        "tags": [
-          "Properties"
-        ]
+        "tags": ["Properties"]
       }
     },
     "/api/v1/properties/property-listings/wizard/{id}/draft": {
@@ -8230,9 +7737,7 @@
           }
         ],
         "summary": "Get wizard draft",
-        "tags": [
-          "Properties"
-        ]
+        "tags": ["Properties"]
       },
       "delete": {
         "description": "Deletes a wizard draft for the current user.",
@@ -8318,9 +7823,7 @@
           }
         ],
         "summary": "Delete wizard draft",
-        "tags": [
-          "Properties"
-        ]
+        "tags": ["Properties"]
       }
     },
     "/api/v1/properties/property-listings/wizard/{id}/publish": {
@@ -8408,9 +7911,7 @@
           }
         ],
         "summary": "Publish wizard draft",
-        "tags": [
-          "Properties"
-        ]
+        "tags": ["Properties"]
       }
     },
     "/api/v1/property-listings/wizard/start": {
@@ -8428,9 +7929,7 @@
           }
         ],
         "summary": "Start a new property listing wizard",
-        "tags": [
-          "Property Wizard"
-        ]
+        "tags": ["Property Wizard"]
       }
     },
     "/api/v1/property-listings/wizard/{id}/draft": {
@@ -8457,9 +7956,7 @@
           }
         ],
         "summary": "Get draft content",
-        "tags": [
-          "Property Wizard"
-        ]
+        "tags": ["Property Wizard"]
       },
       "delete": {
         "operationId": "PropertyWizard_remove",
@@ -8484,9 +7981,7 @@
           }
         ],
         "summary": "Delete a draft",
-        "tags": [
-          "Property Wizard"
-        ]
+        "tags": ["Property Wizard"]
       }
     },
     "/api/v1/property-listings/wizard/{id}/step": {
@@ -8513,9 +8008,7 @@
           }
         ],
         "summary": "Save progress and validate step",
-        "tags": [
-          "Property Wizard"
-        ]
+        "tags": ["Property Wizard"]
       }
     },
     "/api/v1/property-listings/wizard/{id}/publish": {
@@ -8542,9 +8035,7 @@
           }
         ],
         "summary": "Publish draft",
-        "tags": [
-          "Property Wizard"
-        ]
+        "tags": ["Property Wizard"]
       }
     },
     "/api/v1/property-listings/wizard/{id}/ai/pricing-suggestion": {
@@ -8571,9 +8062,7 @@
           }
         ],
         "summary": "AI pricing suggestion",
-        "tags": [
-          "Property Wizard"
-        ]
+        "tags": ["Property Wizard"]
       }
     },
     "/api/v1/property-listings/wizard/{id}/ai/description-suggestion": {
@@ -8600,9 +8089,7 @@
           }
         ],
         "summary": "AI description suggestion",
-        "tags": [
-          "Property Wizard"
-        ]
+        "tags": ["Property Wizard"]
       }
     },
     "/api/v1/property-listings/wizard/{id}/ai/completeness-score": {
@@ -8629,9 +8116,7 @@
           }
         ],
         "summary": "AI completeness score",
-        "tags": [
-          "Property Wizard"
-        ]
+        "tags": ["Property Wizard"]
       }
     },
     "/api/v1/api/properties/{propertyId}/mode": {
@@ -8658,9 +8143,7 @@
           }
         ],
         "summary": "Get current rental mode and settings",
-        "tags": [
-          "Property Modes"
-        ]
+        "tags": ["Property Modes"]
       },
       "patch": {
         "operationId": "PropertyModes_updateMode",
@@ -8701,9 +8184,7 @@
           }
         ],
         "summary": "Update rental mode and settings",
-        "tags": [
-          "Property Modes"
-        ]
+        "tags": ["Property Modes"]
       }
     },
     "/api/v1/api/properties/{propertyId}/mode/recommendations": {
@@ -8730,9 +8211,7 @@
           }
         ],
         "summary": "Get AI-powered mode recommendations",
-        "tags": [
-          "Property Modes"
-        ]
+        "tags": ["Property Modes"]
       }
     },
     "/api/v1/api/properties/{propertyId}/mode/switch": {
@@ -8772,9 +8251,7 @@
           }
         ],
         "summary": "Switch mode (flexible properties only)",
-        "tags": [
-          "Property Modes"
-        ]
+        "tags": ["Property Modes"]
       }
     },
     "/api/v1/properties/{propertyId}/availability": {
@@ -8821,9 +8298,7 @@
           }
         ],
         "summary": "Get availability calendar for a date range",
-        "tags": [
-          "Property Availability"
-        ]
+        "tags": ["Property Availability"]
       },
       "put": {
         "operationId": "Availability_updateAvailability",
@@ -8858,9 +8333,7 @@
           }
         ],
         "summary": "Update availability for a date range",
-        "tags": [
-          "Property Availability"
-        ]
+        "tags": ["Property Availability"]
       }
     },
     "/api/v1/properties/{propertyId}/availability/block": {
@@ -8897,9 +8370,7 @@
           }
         ],
         "summary": "Block a list of dates",
-        "tags": [
-          "Property Availability"
-        ]
+        "tags": ["Property Availability"]
       }
     },
     "/api/v1/properties/{propertyId}/availability/unblock": {
@@ -8936,9 +8407,7 @@
           }
         ],
         "summary": "Unblock a list of dates",
-        "tags": [
-          "Property Availability"
-        ]
+        "tags": ["Property Availability"]
       }
     },
     "/api/v1/properties/{propertyId}/availability/price": {
@@ -8975,9 +8444,7 @@
           }
         ],
         "summary": "Set custom price for a specific date",
-        "tags": [
-          "Property Availability"
-        ]
+        "tags": ["Property Availability"]
       }
     },
     "/api/v1/fraud/user/{userId}": {
@@ -9005,9 +8472,7 @@
           }
         ],
         "summary": "Check user fraud risk",
-        "tags": [
-          "Fraud"
-        ]
+        "tags": ["Fraud"]
       }
     },
     "/api/v1/fraud/listing/{listingId}": {
@@ -9035,9 +8500,7 @@
           }
         ],
         "summary": "Check listing fraud risk",
-        "tags": [
-          "Fraud"
-        ]
+        "tags": ["Fraud"]
       }
     },
     "/api/v1/fraud/alerts": {
@@ -9049,10 +8512,7 @@
             "required": false,
             "in": "query",
             "schema": {
-              "enum": [
-                "open",
-                "resolved"
-              ],
+              "enum": ["open", "resolved"],
               "type": "string"
             }
           }
@@ -9068,9 +8528,7 @@
           }
         ],
         "summary": "Get fraud alerts",
-        "tags": [
-          "Fraud"
-        ]
+        "tags": ["Fraud"]
       }
     },
     "/api/v1/fraud/alerts/{alertId}/resolve": {
@@ -9101,9 +8559,7 @@
           }
         ],
         "summary": "Resolve a fraud alert",
-        "tags": [
-          "Fraud"
-        ]
+        "tags": ["Fraud"]
       }
     },
     "/api/v1/fraud/transaction": {
@@ -9131,9 +8587,7 @@
           }
         ],
         "summary": "Check transaction fraud risk",
-        "tags": [
-          "Fraud"
-        ]
+        "tags": ["Fraud"]
       }
     },
     "/api/v1/disputes": {
@@ -9167,9 +8621,7 @@
           }
         ],
         "summary": "Create a dispute",
-        "tags": [
-          "Disputes"
-        ]
+        "tags": ["Disputes"]
       },
       "get": {
         "operationId": "Disputes_findAll",
@@ -9270,10 +8722,7 @@
             "schema": {
               "example": "DESC",
               "type": "string",
-              "enum": [
-                "ASC",
-                "DESC"
-              ]
+              "enum": ["ASC", "DESC"]
             }
           },
           {
@@ -9300,9 +8749,7 @@
           }
         ],
         "summary": "List disputes with filters",
-        "tags": [
-          "Disputes"
-        ]
+        "tags": ["Disputes"]
       }
     },
     "/api/v1/disputes/{id}": {
@@ -9332,9 +8779,7 @@
           }
         ],
         "summary": "Get dispute by ID",
-        "tags": [
-          "Disputes"
-        ]
+        "tags": ["Disputes"]
       },
       "put": {
         "operationId": "Disputes_update",
@@ -9368,9 +8813,7 @@
             "JWT-auth": []
           }
         ],
-        "tags": [
-          "Disputes"
-        ]
+        "tags": ["Disputes"]
       }
     },
     "/api/v1/disputes/dispute/{disputeId}": {
@@ -9396,9 +8839,7 @@
             "JWT-auth": []
           }
         ],
-        "tags": [
-          "Disputes"
-        ]
+        "tags": ["Disputes"]
       }
     },
     "/api/v1/disputes/{disputeId}/evidence": {
@@ -9434,9 +8875,7 @@
             "JWT-auth": []
           }
         ],
-        "tags": [
-          "Disputes"
-        ]
+        "tags": ["Disputes"]
       }
     },
     "/api/v1/disputes/{disputeId}/comment": {
@@ -9472,9 +8911,7 @@
             "JWT-auth": []
           }
         ],
-        "tags": [
-          "Disputes"
-        ]
+        "tags": ["Disputes"]
       }
     },
     "/api/v1/disputes/{disputeId}/resolve": {
@@ -9510,9 +8947,7 @@
             "JWT-auth": []
           }
         ],
-        "tags": [
-          "Disputes"
-        ]
+        "tags": ["Disputes"]
       }
     },
     "/api/v1/disputes/agreement/{agreementId}/disputes": {
@@ -9538,9 +8973,7 @@
             "JWT-auth": []
           }
         ],
-        "tags": [
-          "Disputes"
-        ]
+        "tags": ["Disputes"]
       }
     },
     "/api/v1/admin/disputes/{id}": {
@@ -9587,9 +9020,7 @@
           }
         ],
         "summary": "Admin update dispute status and resolution",
-        "tags": [
-          "Admin Disputes"
-        ]
+        "tags": ["Admin Disputes"]
       }
     },
     "/api/v1/bookings": {
@@ -9617,9 +9048,7 @@
           }
         ],
         "summary": "Create a short-stay booking request",
-        "tags": [
-          "Bookings"
-        ]
+        "tags": ["Bookings"]
       },
       "get": {
         "description": "role=host returns bookings on properties the caller owns; role=guest (default) returns bookings the caller made.",
@@ -9633,10 +9062,7 @@
             "schema": {
               "example": "guest",
               "type": "string",
-              "enum": [
-                "host",
-                "guest"
-              ]
+              "enum": ["host", "guest"]
             }
           },
           {
@@ -9647,12 +9073,7 @@
             "schema": {
               "example": "CONFIRMED",
               "type": "string",
-              "enum": [
-                "pending",
-                "confirmed",
-                "cancelled",
-                "completed"
-              ]
+              "enum": ["pending", "confirmed", "cancelled", "completed"]
             }
           }
         ],
@@ -9667,9 +9088,7 @@
           }
         ],
         "summary": "List bookings for the current user",
-        "tags": [
-          "Bookings"
-        ]
+        "tags": ["Bookings"]
       }
     },
     "/api/v1/bookings/{id}/confirm": {
@@ -9696,9 +9115,7 @@
           }
         ],
         "summary": "Host confirms a pending booking",
-        "tags": [
-          "Bookings"
-        ]
+        "tags": ["Bookings"]
       }
     },
     "/api/v1/bookings/{id}/cancel": {
@@ -9725,9 +9142,7 @@
           }
         ],
         "summary": "Host declines/cancels a pending booking",
-        "tags": [
-          "Bookings"
-        ]
+        "tags": ["Bookings"]
       }
     },
     "/api/v1/payments": {
@@ -9770,9 +9185,7 @@
           }
         ],
         "summary": "Record a payment",
-        "tags": [
-          "Payments"
-        ]
+        "tags": ["Payments"]
       },
       "get": {
         "operationId": "Payment_listPayments",
@@ -9791,9 +9204,7 @@
           }
         ],
         "summary": "List payments with filters",
-        "tags": [
-          "Payments"
-        ]
+        "tags": ["Payments"]
       }
     },
     "/api/v1/payments/stellar/rent": {
@@ -9821,9 +9232,7 @@
           }
         ],
         "summary": "Process Stellar rent payment",
-        "tags": [
-          "Payments"
-        ]
+        "tags": ["Payments"]
       }
     },
     "/api/v1/payments/stellar/escrow": {
@@ -9851,9 +9260,7 @@
           }
         ],
         "summary": "Create Stellar escrow deposit",
-        "tags": [
-          "Payments"
-        ]
+        "tags": ["Payments"]
       }
     },
     "/api/v1/payments/stellar/escrow/{escrowId}/release": {
@@ -9890,9 +9297,7 @@
           }
         ],
         "summary": "Release Stellar escrow deposit",
-        "tags": [
-          "Payments"
-        ]
+        "tags": ["Payments"]
       }
     },
     "/api/v1/payments/stellar/escrow/{escrowId}/refund": {
@@ -9929,9 +9334,7 @@
           }
         ],
         "summary": "Refund Stellar escrow deposit",
-        "tags": [
-          "Payments"
-        ]
+        "tags": ["Payments"]
       }
     },
     "/api/v1/payments/reconciliation/run": {
@@ -9959,9 +9362,7 @@
           }
         ],
         "summary": "Reconcile Stellar-backed payments",
-        "tags": [
-          "Payments"
-        ]
+        "tags": ["Payments"]
       }
     },
     "/api/v1/payments/retry-failed": {
@@ -9989,9 +9390,7 @@
           }
         ],
         "summary": "Retry failed payment records",
-        "tags": [
-          "Payments"
-        ]
+        "tags": ["Payments"]
       }
     },
     "/api/v1/payments/analytics/summary": {
@@ -10009,9 +9408,7 @@
           }
         ],
         "summary": "Get payment analytics summary",
-        "tags": [
-          "Payments"
-        ]
+        "tags": ["Payments"]
       }
     },
     "/api/v1/payments/{id}": {
@@ -10041,9 +9438,7 @@
           }
         ],
         "summary": "Get payment by ID",
-        "tags": [
-          "Payments"
-        ]
+        "tags": ["Payments"]
       }
     },
     "/api/v1/payments/{id}/refund": {
@@ -10079,9 +9474,7 @@
             "JWT-auth": []
           }
         ],
-        "tags": [
-          "Payments"
-        ]
+        "tags": ["Payments"]
       }
     },
     "/api/v1/payments/{id}/receipt": {
@@ -10107,9 +9500,7 @@
             "JWT-auth": []
           }
         ],
-        "tags": [
-          "Payments"
-        ]
+        "tags": ["Payments"]
       }
     },
     "/api/v1/payment-methods": {
@@ -10131,9 +9522,7 @@
             "description": ""
           }
         },
-        "tags": [
-          "PaymentMethod"
-        ]
+        "tags": ["PaymentMethod"]
       },
       "get": {
         "operationId": "PaymentMethod_listPaymentMethods",
@@ -10143,9 +9532,7 @@
             "description": ""
           }
         },
-        "tags": [
-          "PaymentMethod"
-        ]
+        "tags": ["PaymentMethod"]
       }
     },
     "/api/v1/payment-methods/{id}": {
@@ -10176,9 +9563,7 @@
             "description": ""
           }
         },
-        "tags": [
-          "PaymentMethod"
-        ]
+        "tags": ["PaymentMethod"]
       },
       "delete": {
         "operationId": "PaymentMethod_deletePaymentMethod",
@@ -10197,9 +9582,7 @@
             "description": ""
           }
         },
-        "tags": [
-          "PaymentMethod"
-        ]
+        "tags": ["PaymentMethod"]
       }
     },
     "/api/v1/payments/schedules": {
@@ -10227,9 +9610,7 @@
           }
         ],
         "summary": "Create payment schedule",
-        "tags": [
-          "Payments"
-        ]
+        "tags": ["Payments"]
       },
       "get": {
         "operationId": "PaymentSchedule_listSchedules",
@@ -10244,9 +9625,7 @@
             "JWT-auth": []
           }
         ],
-        "tags": [
-          "Payments"
-        ]
+        "tags": ["Payments"]
       }
     },
     "/api/v1/payments/schedules/{id}": {
@@ -10282,9 +9661,7 @@
             "JWT-auth": []
           }
         ],
-        "tags": [
-          "Payments"
-        ]
+        "tags": ["Payments"]
       }
     },
     "/api/v1/payments/schedules/{id}/run": {
@@ -10310,9 +9687,7 @@
             "JWT-auth": []
           }
         ],
-        "tags": [
-          "Payments"
-        ]
+        "tags": ["Payments"]
       }
     },
     "/api/v1/payments/schedules/process-due": {
@@ -10329,9 +9704,7 @@
             "JWT-auth": []
           }
         ],
-        "tags": [
-          "Payments"
-        ]
+        "tags": ["Payments"]
       }
     },
     "/api/v1/payments/webhooks/gateway": {
@@ -10364,9 +9737,7 @@
           }
         },
         "summary": "Handle payment gateway webhook events",
-        "tags": [
-          "Payments"
-        ]
+        "tags": ["Payments"]
       }
     },
     "/api/v1/payments/webhooks/refund": {
@@ -10399,9 +9770,7 @@
           }
         },
         "summary": "Handle payment gateway refund webhook events",
-        "tags": [
-          "Payments"
-        ]
+        "tags": ["Payments"]
       }
     },
     "/api/v1/admin/refunds": {
@@ -10419,9 +9788,7 @@
           }
         ],
         "summary": "List admin refund requests",
-        "tags": [
-          "Admin Refunds"
-        ]
+        "tags": ["Admin Refunds"]
       }
     },
     "/api/v1/admin/refunds/{id}": {
@@ -10448,9 +9815,7 @@
           }
         ],
         "summary": "Get admin refund request detail",
-        "tags": [
-          "Admin Refunds"
-        ]
+        "tags": ["Admin Refunds"]
       }
     },
     "/api/v1/admin/refunds/{id}/decision": {
@@ -10487,9 +9852,7 @@
           }
         ],
         "summary": "Approve or reject a refund request",
-        "tags": [
-          "Admin Refunds"
-        ]
+        "tags": ["Admin Refunds"]
       }
     },
     "/api/v1/status": {
@@ -10512,9 +9875,7 @@
           }
         },
         "summary": "Public status page",
-        "tags": [
-          "Status"
-        ]
+        "tags": ["Status"]
       }
     },
     "/api/v1/status/uptime": {
@@ -10527,9 +9888,7 @@
           }
         },
         "summary": "Service uptime",
-        "tags": [
-          "Status"
-        ]
+        "tags": ["Status"]
       }
     },
     "/api/v1/feature-flags/eval": {
@@ -10559,9 +9918,7 @@
           }
         },
         "summary": "Evaluate a single feature flag for a user",
-        "tags": [
-          "Feature Flags"
-        ]
+        "tags": ["Feature Flags"]
       }
     },
     "/api/v1/feature-flags/eval-all": {
@@ -10583,9 +9940,7 @@
           }
         },
         "summary": "Evaluate all feature flags for a user",
-        "tags": [
-          "Feature Flags"
-        ]
+        "tags": ["Feature Flags"]
       }
     },
     "/api/v1/admin/feature-flags": {
@@ -10598,9 +9953,7 @@
           }
         },
         "summary": "List all feature flags (Admin)",
-        "tags": [
-          "Feature Flags"
-        ]
+        "tags": ["Feature Flags"]
       },
       "post": {
         "operationId": "FeatureFlags_createFlag",
@@ -10621,9 +9974,7 @@
           }
         },
         "summary": "Create a new feature flag (Admin)",
-        "tags": [
-          "Feature Flags"
-        ]
+        "tags": ["Feature Flags"]
       }
     },
     "/api/v1/admin/feature-flags/{key}": {
@@ -10645,9 +9996,7 @@
           }
         },
         "summary": "Get feature flag details by key (Admin)",
-        "tags": [
-          "Feature Flags"
-        ]
+        "tags": ["Feature Flags"]
       },
       "patch": {
         "operationId": "FeatureFlags_updateFlag",
@@ -10677,9 +10026,7 @@
           }
         },
         "summary": "Update a feature flag rollout/status (Admin)",
-        "tags": [
-          "Feature Flags"
-        ]
+        "tags": ["Feature Flags"]
       },
       "delete": {
         "operationId": "FeatureFlags_deleteFlag",
@@ -10699,9 +10046,7 @@
           }
         },
         "summary": "Delete a feature flag (Admin)",
-        "tags": [
-          "Feature Flags"
-        ]
+        "tags": ["Feature Flags"]
       }
     },
     "/api/v1/admin/feature-flags/{key}/rollout": {
@@ -10723,9 +10068,7 @@
           }
         },
         "summary": "Update rollout percentage for a feature flag (Admin)",
-        "tags": [
-          "Feature Flags"
-        ]
+        "tags": ["Feature Flags"]
       }
     },
     "/api/v1/admin/feature-flags/{key}/kill": {
@@ -10747,9 +10090,7 @@
           }
         },
         "summary": "Trigger emergency kill switch for a feature flag (Admin)",
-        "tags": [
-          "Feature Flags"
-        ]
+        "tags": ["Feature Flags"]
       }
     },
     "/api/v1/profile": {
@@ -10794,9 +10135,7 @@
           }
         ],
         "summary": "Create profile",
-        "tags": [
-          "Profile"
-        ]
+        "tags": ["Profile"]
       },
       "put": {
         "description": "Updates the authenticated user's profile. If the data hash changes, the on-chain data will be updated.",
@@ -10839,9 +10178,7 @@
           }
         ],
         "summary": "Update profile",
-        "tags": [
-          "Profile"
-        ]
+        "tags": ["Profile"]
       },
       "get": {
         "description": "Retrieves the on-chain and off-chain profile data for the authenticated user.",
@@ -10871,9 +10208,7 @@
           }
         ],
         "summary": "Get current user profile",
-        "tags": [
-          "Profile"
-        ]
+        "tags": ["Profile"]
       }
     },
     "/api/v1/profile/wallet/{address}": {
@@ -10908,9 +10243,7 @@
           }
         },
         "summary": "Get profile by wallet address",
-        "tags": [
-          "Profile"
-        ]
+        "tags": ["Profile"]
       }
     },
     "/api/v1/profile/verify": {
@@ -10945,9 +10278,7 @@
           }
         ],
         "summary": "Verify data integrity",
-        "tags": [
-          "Profile"
-        ]
+        "tags": ["Profile"]
       }
     },
     "/api/v1/i18n/languages": {
@@ -10960,9 +10291,7 @@
           }
         },
         "summary": "List supported languages and coverage",
-        "tags": [
-          "I18n"
-        ]
+        "tags": ["I18n"]
       }
     },
     "/api/v1/i18n/translate": {
@@ -10992,9 +10321,7 @@
           }
         },
         "summary": "Translate a key for a given language",
-        "tags": [
-          "I18n"
-        ]
+        "tags": ["I18n"]
       }
     },
     "/api/v1/i18n/format-demo": {
@@ -11016,9 +10343,7 @@
           }
         },
         "summary": "Show currency/date/number localization sample",
-        "tags": [
-          "I18n"
-        ]
+        "tags": ["I18n"]
       }
     },
     "/api/v1/documents": {
@@ -11053,9 +10378,7 @@
           }
         ],
         "summary": "Create a document record",
-        "tags": [
-          "Documents"
-        ]
+        "tags": ["Documents"]
       },
       "get": {
         "operationId": "Document_findAll",
@@ -11137,9 +10460,7 @@
           }
         ],
         "summary": "List documents with filtering and pagination",
-        "tags": [
-          "Documents"
-        ]
+        "tags": ["Documents"]
       }
     },
     "/api/v1/documents/{id}": {
@@ -11173,9 +10494,7 @@
           }
         ],
         "summary": "Get a single document",
-        "tags": [
-          "Documents"
-        ]
+        "tags": ["Documents"]
       },
       "patch": {
         "operationId": "Document_update",
@@ -11217,9 +10536,7 @@
           }
         ],
         "summary": "Update document metadata",
-        "tags": [
-          "Documents"
-        ]
+        "tags": ["Documents"]
       },
       "delete": {
         "operationId": "Document_remove",
@@ -11244,9 +10561,7 @@
           }
         ],
         "summary": "Delete a document",
-        "tags": [
-          "Documents"
-        ]
+        "tags": ["Documents"]
       }
     },
     "/api/v1/documents/{id}/share": {
@@ -11290,9 +10605,7 @@
           }
         ],
         "summary": "Share a document with a tenant",
-        "tags": [
-          "Documents"
-        ]
+        "tags": ["Documents"]
       }
     },
     "/api/v1/documents/{id}/download": {
@@ -11319,9 +10632,7 @@
           }
         ],
         "summary": "Get document download URL",
-        "tags": [
-          "Documents"
-        ]
+        "tags": ["Documents"]
       }
     },
     "/api/v1/feedback": {
@@ -11360,9 +10671,7 @@
           }
         },
         "summary": "Submit feedback",
-        "tags": [
-          "Community & Support"
-        ]
+        "tags": ["Community & Support"]
       }
     },
     "/api/v1/developer/api-keys": {
@@ -11416,9 +10725,7 @@
           }
         ],
         "summary": "Create API key",
-        "tags": [
-          "Developer Portal"
-        ]
+        "tags": ["Developer Portal"]
       },
       "get": {
         "description": "List your API keys (masked). Includes expiration status and warnings. Requires JWT.",
@@ -11435,9 +10742,7 @@
           }
         ],
         "summary": "List API keys",
-        "tags": [
-          "Developer Portal"
-        ]
+        "tags": ["Developer Portal"]
       }
     },
     "/api/v1/developer/api-keys/expiring-soon": {
@@ -11456,9 +10761,7 @@
           }
         ],
         "summary": "Get keys expiring soon",
-        "tags": [
-          "Developer Portal"
-        ]
+        "tags": ["Developer Portal"]
       }
     },
     "/api/v1/developer/api-keys/{id}": {
@@ -11490,9 +10793,7 @@
           }
         ],
         "summary": "Get API key details",
-        "tags": [
-          "Developer Portal"
-        ]
+        "tags": ["Developer Portal"]
       },
       "patch": {
         "description": "Update API key name, description, permissions and/or expiration date.",
@@ -11532,9 +10833,7 @@
           }
         ],
         "summary": "Update API key",
-        "tags": [
-          "Developer Portal"
-        ]
+        "tags": ["Developer Portal"]
       },
       "delete": {
         "operationId": "Developer_revokeKey",
@@ -11563,9 +10862,7 @@
           }
         ],
         "summary": "Revoke API key",
-        "tags": [
-          "Developer Portal"
-        ]
+        "tags": ["Developer Portal"]
       }
     },
     "/api/v1/developer/api-keys/{id}/rotate": {
@@ -11632,9 +10929,7 @@
           }
         ],
         "summary": "Rotate API key",
-        "tags": [
-          "Developer Portal"
-        ]
+        "tags": ["Developer Portal"]
       }
     },
     "/api/v1/developer/api-keys/{id}/rotation-history": {
@@ -11666,9 +10961,7 @@
           }
         ],
         "summary": "Get rotation history",
-        "tags": [
-          "Developer Portal"
-        ]
+        "tags": ["Developer Portal"]
       }
     },
     "/api/v1/developer-portal": {
@@ -11680,13 +10973,12 @@
             "description": ""
           }
         },
-        "tags": [
-          "DeveloperPortal"
-        ]
+        "tags": ["DeveloperPortal"]
       }
     },
     "/api/v1/search/properties": {
       "get": {
+        "description": "Property search results tolerate brief replication lag",
         "operationId": "Search_searchProperties",
         "parameters": [
           {
@@ -11831,13 +11123,7 @@
             "required": false,
             "in": "query",
             "schema": {
-              "enum": [
-                "apartment",
-                "house",
-                "commercial",
-                "land",
-                "other"
-              ],
+              "enum": ["apartment", "house", "commercial", "land", "other"],
               "type": "string"
             }
           }
@@ -11847,14 +11133,15 @@
             "description": ""
           }
         },
-        "summary": "Full-text property search with faceted filtering",
-        "tags": [
-          "Search"
-        ]
+        "summary": "",
+        "tags": ["Search"],
+        "x-max-staleness": "30s",
+        "x-use-replica": true
       }
     },
     "/api/v1/search/users": {
       "get": {
+        "description": "User search results tolerate brief replication lag",
         "operationId": "Search_searchUsers",
         "parameters": [
           {
@@ -11910,10 +11197,7 @@
             "required": false,
             "in": "query",
             "schema": {
-              "enum": [
-                "asc",
-                "desc"
-              ],
+              "enum": ["asc", "desc"],
               "type": "string"
             }
           },
@@ -11922,12 +11206,7 @@
             "required": false,
             "in": "query",
             "schema": {
-              "enum": [
-                "user",
-                "admin",
-                "agent",
-                "super_admin"
-              ],
+              "enum": ["user", "admin", "agent", "super_admin"],
               "type": "string"
             }
           }
@@ -11937,14 +11216,15 @@
             "description": ""
           }
         },
-        "summary": "Search users with filters",
-        "tags": [
-          "Search"
-        ]
+        "summary": "",
+        "tags": ["Search"],
+        "x-max-staleness": "1m",
+        "x-use-replica": true
       }
     },
     "/api/v1/search/documents": {
       "get": {
+        "description": "Document search results tolerate brief replication lag",
         "operationId": "Search_searchDocuments",
         "parameters": [
           {
@@ -12040,10 +11320,7 @@
             "required": false,
             "in": "query",
             "schema": {
-              "enum": [
-                "asc",
-                "desc"
-              ],
+              "enum": ["asc", "desc"],
               "type": "string"
             }
           },
@@ -12070,14 +11347,15 @@
             "description": ""
           }
         },
-        "summary": "Search documents (agreements) with filters",
-        "tags": [
-          "Search"
-        ]
+        "summary": "",
+        "tags": ["Search"],
+        "x-max-staleness": "1m",
+        "x-use-replica": true
       }
     },
     "/api/v1/search/suggest": {
       "get": {
+        "description": "Autocomplete suggestions tolerate staleness",
         "operationId": "Search_suggest",
         "parameters": [
           {
@@ -12094,10 +11372,10 @@
             "description": ""
           }
         },
-        "summary": "Autocomplete suggestions for search",
-        "tags": [
-          "Search"
-        ]
+        "summary": "",
+        "tags": ["Search"],
+        "x-max-staleness": "5m",
+        "x-use-replica": true
       }
     },
     "/api/v1/cleanup/report": {
@@ -12110,9 +11388,7 @@
           }
         },
         "summary": "Get technical debt cleanup report",
-        "tags": [
-          "Cleanup"
-        ]
+        "tags": ["Cleanup"]
       }
     },
     "/api/v1/cleanup/orphaned-records/run": {
@@ -12125,9 +11401,7 @@
           }
         },
         "summary": "Scan for orphaned database records and delete them if ORPHAN_CLEANUP_DELETE_ENABLED is set",
-        "tags": [
-          "Cleanup"
-        ]
+        "tags": ["Cleanup"]
       }
     },
     "/api/v1/data-archival/stats": {
@@ -12140,9 +11414,7 @@
           }
         },
         "summary": "Get archival statistics",
-        "tags": [
-          "Data Archival"
-        ]
+        "tags": ["Data Archival"]
       }
     },
     "/api/v1/data-archival/manual-archive": {
@@ -12165,9 +11437,7 @@
           }
         },
         "summary": "Manually trigger archival for specific entity type",
-        "tags": [
-          "Data Archival"
-        ]
+        "tags": ["Data Archival"]
       }
     },
     "/api/v1/data-archival/trigger-scheduled": {
@@ -12180,9 +11450,43 @@
           }
         },
         "summary": "Trigger scheduled archival process manually",
-        "tags": [
-          "Data Archival"
-        ]
+        "tags": ["Data Archival"]
+      }
+    },
+    "/api/v1/data-retention/stats": {
+      "get": {
+        "operationId": "DataRetention_getStats",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Retention statistics retrieved successfully"
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Get data retention policy status",
+        "tags": ["Data Retention"]
+      }
+    },
+    "/api/v1/data-retention/trigger": {
+      "post": {
+        "operationId": "DataRetention_trigger",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Retention enforcement completed successfully"
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Manually trigger retention enforcement (erasure + cleanup)",
+        "tags": ["Data Retention"]
       }
     },
     "/api/v1/ai/models": {
@@ -12195,9 +11499,7 @@
           }
         },
         "summary": "List available ML models",
-        "tags": [
-          "AI"
-        ]
+        "tags": ["AI"]
       }
     },
     "/api/v1/ai/fraud/score": {
@@ -12210,9 +11512,7 @@
           }
         },
         "summary": "Score a transaction for fraud risk",
-        "tags": [
-          "AI"
-        ]
+        "tags": ["AI"]
       }
     },
     "/api/v1/ai/recommendations/properties": {
@@ -12225,9 +11525,7 @@
           }
         },
         "summary": "Generate ranked property recommendations",
-        "tags": [
-          "AI"
-        ]
+        "tags": ["AI"]
       }
     },
     "/api/v1/api/ai/matching/recommendations": {
@@ -12255,9 +11553,7 @@
           }
         ],
         "summary": "Get personalized property recommendations",
-        "tags": [
-          "AI Matching"
-        ]
+        "tags": ["AI Matching"]
       }
     },
     "/api/v1/api/ai/matching/match-score/{propertyId}": {
@@ -12284,9 +11580,7 @@
           }
         ],
         "summary": "Get match score for a specific property",
-        "tags": [
-          "AI Matching"
-        ]
+        "tags": ["AI Matching"]
       }
     },
     "/api/v1/api/ai/matching/similar/{propertyId}": {
@@ -12322,9 +11616,7 @@
           }
         ],
         "summary": "Get similar properties",
-        "tags": [
-          "AI Matching"
-        ]
+        "tags": ["AI Matching"]
       }
     },
     "/api/v1/api/ai/matching/preferences": {
@@ -12352,9 +11644,7 @@
           }
         ],
         "summary": "Update user matching preferences",
-        "tags": [
-          "AI Matching"
-        ]
+        "tags": ["AI Matching"]
       },
       "get": {
         "operationId": "MatchingAi_getPreferences",
@@ -12370,9 +11660,7 @@
           }
         ],
         "summary": "Get current user preferences",
-        "tags": [
-          "AI Matching"
-        ]
+        "tags": ["AI Matching"]
       }
     },
     "/api/v1/favorites": {
@@ -12404,9 +11692,7 @@
           }
         ],
         "summary": "Get current user's favorited properties",
-        "tags": [
-          "favorites"
-        ]
+        "tags": ["favorites"]
       },
       "post": {
         "description": "Saves a property to the current user's favorites list.",
@@ -12446,9 +11732,7 @@
           }
         ],
         "summary": "Add a property to favorites",
-        "tags": [
-          "favorites"
-        ]
+        "tags": ["favorites"]
       }
     },
     "/api/v1/favorites/{propertyId}": {
@@ -12491,9 +11775,7 @@
           }
         ],
         "summary": "Get favorite status for a property",
-        "tags": [
-          "favorites"
-        ]
+        "tags": ["favorites"]
       },
       "delete": {
         "description": "Removes a property from the current user's favorites list.",
@@ -12527,9 +11809,7 @@
           }
         ],
         "summary": "Remove a property from favorites",
-        "tags": [
-          "favorites"
-        ]
+        "tags": ["favorites"]
       }
     },
     "/api/v1/favorites/{propertyId}/count": {
@@ -12577,9 +11857,7 @@
           }
         ],
         "summary": "Get favorite count for a property",
-        "tags": [
-          "favorites"
-        ]
+        "tags": ["favorites"]
       }
     },
     "/api/v1/screenings/tenant/request": {
@@ -12607,9 +11885,7 @@
           }
         ],
         "summary": "Create a tenant screening request",
-        "tags": [
-          "Tenant Screening"
-        ]
+        "tags": ["Tenant Screening"]
       }
     },
     "/api/v1/screenings/tenant/{id}/consent": {
@@ -12646,9 +11922,7 @@
           }
         ],
         "summary": "Grant consent for a tenant screening request",
-        "tags": [
-          "Tenant Screening"
-        ]
+        "tags": ["Tenant Screening"]
       }
     },
     "/api/v1/screenings/tenant/{id}": {
@@ -12675,9 +11949,7 @@
           }
         ],
         "summary": "Get tenant screening status",
-        "tags": [
-          "Tenant Screening"
-        ]
+        "tags": ["Tenant Screening"]
       }
     },
     "/api/v1/screenings/tenant/{id}/report": {
@@ -12704,9 +11976,7 @@
           }
         ],
         "summary": "Get a securely stored tenant screening report",
-        "tags": [
-          "Tenant Screening"
-        ]
+        "tags": ["Tenant Screening"]
       }
     },
     "/api/v1/screenings/tenant/webhook": {
@@ -12729,9 +11999,7 @@
           }
         },
         "summary": "Tenant screening provider webhook",
-        "tags": [
-          "Tenant Screening"
-        ]
+        "tags": ["Tenant Screening"]
       }
     },
     "/api/v1/inquiries": {
@@ -12759,9 +12027,7 @@
           }
         ],
         "summary": "Create property inquiry",
-        "tags": [
-          "Inquiries"
-        ]
+        "tags": ["Inquiries"]
       }
     },
     "/api/v1/inquiries/incoming": {
@@ -12779,9 +12045,7 @@
           }
         ],
         "summary": "List inquiries sent to current user properties",
-        "tags": [
-          "Inquiries"
-        ]
+        "tags": ["Inquiries"]
       }
     },
     "/api/v1/inquiries/outgoing": {
@@ -12799,9 +12063,7 @@
           }
         ],
         "summary": "List inquiries created by current user",
-        "tags": [
-          "Inquiries"
-        ]
+        "tags": ["Inquiries"]
       }
     },
     "/api/v1/inquiries/{id}/viewed": {
@@ -12828,13 +12090,12 @@
           }
         ],
         "summary": "Mark an incoming inquiry as viewed",
-        "tags": [
-          "Inquiries"
-        ]
+        "tags": ["Inquiries"]
       }
     },
     "/api/v1/analytics/landlord/dashboard": {
       "get": {
+        "description": "Dashboard analytics tolerate staleness for performance",
         "operationId": "Analytics_getLandlordDashboard",
         "parameters": [
           {
@@ -12857,14 +12118,15 @@
             "JWT-auth": []
           }
         ],
-        "summary": "Get landlord property analytics dashboard data",
-        "tags": [
-          "Analytics"
-        ]
+        "summary": "",
+        "tags": ["Analytics"],
+        "x-max-staleness": "5m",
+        "x-use-replica": true
       }
     },
     "/api/v1/analytics/landlord/fees-summary": {
       "get": {
+        "description": "Fees summary tolerates staleness",
         "operationId": "Analytics_getLandlordFeesSummary",
         "parameters": [],
         "responses": {
@@ -12877,14 +12139,15 @@
             "JWT-auth": []
           }
         ],
-        "summary": "Get landlord platform fees summary",
-        "tags": [
-          "Analytics"
-        ]
+        "summary": "",
+        "tags": ["Analytics"],
+        "x-max-staleness": "5m",
+        "x-use-replica": true
       }
     },
     "/api/v1/analytics/dashboard/metrics": {
       "get": {
+        "description": "Dashboard metrics tolerate staleness",
         "operationId": "Analytics_getDashboardMetrics",
         "parameters": [],
         "responses": {
@@ -12897,14 +12160,15 @@
             "JWT-auth": []
           }
         ],
-        "summary": "Get overall dashboard metrics",
-        "tags": [
-          "Analytics"
-        ]
+        "summary": "",
+        "tags": ["Analytics"],
+        "x-max-staleness": "5m",
+        "x-use-replica": true
       }
     },
     "/api/v1/analytics/payment/analytics": {
       "get": {
+        "description": "Payment analytics tolerate staleness",
         "operationId": "Analytics_getPaymentAnalytics",
         "parameters": [
           {
@@ -12927,14 +12191,15 @@
             "JWT-auth": []
           }
         ],
-        "summary": "Get payment analytics data",
-        "tags": [
-          "Analytics"
-        ]
+        "summary": "",
+        "tags": ["Analytics"],
+        "x-max-staleness": "5m",
+        "x-use-replica": true
       }
     },
     "/api/v1/analytics/user/activity": {
       "get": {
+        "description": "User activity analytics tolerate staleness",
         "operationId": "Analytics_getUserActivityAnalytics",
         "parameters": [
           {
@@ -12957,10 +12222,10 @@
             "JWT-auth": []
           }
         ],
-        "summary": "Get user activity analytics",
-        "tags": [
-          "Analytics"
-        ]
+        "summary": "",
+        "tags": ["Analytics"],
+        "x-max-staleness": "5m",
+        "x-use-replica": true
       }
     },
     "/api/v1/analytics/reports/generate": {
@@ -12988,9 +12253,7 @@
           }
         ],
         "summary": "Generate analytics report",
-        "tags": [
-          "Analytics"
-        ]
+        "tags": ["Analytics"]
       }
     },
     "/api/v1/analytics/export": {
@@ -13018,9 +12281,436 @@
           }
         ],
         "summary": "Export analytics data",
-        "tags": [
-          "Analytics"
-        ]
+        "tags": ["Analytics"]
+      }
+    },
+    "/api/v1/api/v1/queues/stats": {
+      "get": {
+        "operationId": "Queues_getQueueStats",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Get all queue statistics",
+        "tags": ["Queue Management"]
+      }
+    },
+    "/api/v1/api/v1/queues/dead-letter/stats": {
+      "get": {
+        "operationId": "Queues_getDeadLetterStats",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Get dead letter queue statistics",
+        "tags": ["Queue Management"]
+      }
+    },
+    "/api/v1/api/v1/queues/dead-letter/jobs": {
+      "get": {
+        "operationId": "Queues_getDeadLetterJobs",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "List jobs in the dead letter queue",
+        "tags": ["Queue Management"]
+      }
+    },
+    "/api/v1/api/v1/queues/dead-letter/purge": {
+      "post": {
+        "operationId": "Queues_purgeDeadLetterJobs",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Purge expired dead letter jobs",
+        "tags": ["Queue Management"]
+      }
+    },
+    "/api/v1/api/v1/queues/dead-letter/jobs/{jobId}/retry": {
+      "post": {
+        "operationId": "Queues_retryDeadLetterJob",
+        "parameters": [
+          {
+            "name": "jobId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Retry a job from the dead letter queue",
+        "tags": ["Queue Management"]
+      }
+    },
+    "/api/v1/api/v1/queues/dead-letter/jobs/{jobId}/remove": {
+      "post": {
+        "operationId": "Queues_removeDeadLetterJob",
+        "parameters": [
+          {
+            "name": "jobId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Remove a job from the dead letter queue",
+        "tags": ["Queue Management"]
+      }
+    },
+    "/api/v1/api/v1/queues/{queueName}/stats": {
+      "get": {
+        "operationId": "Queues_getQueueStatsByName",
+        "parameters": [
+          {
+            "name": "queueName",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Get specific queue statistics",
+        "tags": ["Queue Management"]
+      }
+    },
+    "/api/v1/api/v1/queues/health": {
+      "get": {
+        "operationId": "Queues_getQueueHealth",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Get queue health status",
+        "tags": ["Queue Management"]
+      }
+    },
+    "/api/v1/api/v1/queues/dashboard/stats": {
+      "get": {
+        "operationId": "Queues_getDashboardStats",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Get dashboard statistics",
+        "tags": ["Queue Management"]
+      }
+    },
+    "/api/v1/api/v1/queues/{queueName}/metrics": {
+      "get": {
+        "operationId": "Queues_getMetricsHistory",
+        "parameters": [
+          {
+            "name": "queueName",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Get metrics history for a queue",
+        "tags": ["Queue Management"]
+      }
+    },
+    "/api/v1/api/v1/queues/{queueName}/failed": {
+      "get": {
+        "operationId": "Queues_getFailedJobs",
+        "parameters": [
+          {
+            "name": "queueName",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Get failed jobs for a queue",
+        "tags": ["Queue Management"]
+      }
+    },
+    "/api/v1/api/v1/queues/{queueName}/jobs/{jobId}": {
+      "get": {
+        "operationId": "Queues_getJobDetails",
+        "parameters": [
+          {
+            "name": "queueName",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "jobId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Get job details",
+        "tags": ["Queue Management"]
+      }
+    },
+    "/api/v1/api/v1/queues/{queueName}/pause": {
+      "post": {
+        "operationId": "Queues_pauseQueue",
+        "parameters": [
+          {
+            "name": "queueName",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Pause a queue",
+        "tags": ["Queue Management"]
+      }
+    },
+    "/api/v1/api/v1/queues/{queueName}/resume": {
+      "post": {
+        "operationId": "Queues_resumeQueue",
+        "parameters": [
+          {
+            "name": "queueName",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Resume a queue",
+        "tags": ["Queue Management"]
+      }
+    },
+    "/api/v1/api/v1/queues/{queueName}/clear": {
+      "post": {
+        "operationId": "Queues_clearQueue",
+        "parameters": [
+          {
+            "name": "queueName",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Clear a queue",
+        "tags": ["Queue Management"]
+      }
+    },
+    "/api/v1/api/v1/queues/{queueName}/jobs/{jobId}/retry": {
+      "post": {
+        "operationId": "Queues_retryJob",
+        "parameters": [
+          {
+            "name": "queueName",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "jobId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Retry a failed job",
+        "tags": ["Queue Management"]
+      }
+    },
+    "/api/v1/api/v1/queues/{queueName}/jobs/{jobId}/remove": {
+      "post": {
+        "operationId": "Queues_removeJob",
+        "parameters": [
+          {
+            "name": "queueName",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "jobId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Remove a job",
+        "tags": ["Queue Management"]
       }
     },
     "/api/v1/database-performance/report": {
@@ -13038,9 +12728,7 @@
           }
         ],
         "summary": "Get a comprehensive database performance report",
-        "tags": [
-          "Database Performance"
-        ]
+        "tags": ["Database Performance"]
       }
     },
     "/api/v1/database-performance/slow-queries": {
@@ -13058,9 +12746,7 @@
           }
         ],
         "summary": "Get slow query statistics from pg_stat_statements",
-        "tags": [
-          "Database Performance"
-        ]
+        "tags": ["Database Performance"]
       }
     },
     "/api/v1/database-performance/indexes/usage": {
@@ -13078,9 +12764,7 @@
           }
         ],
         "summary": "Get index usage statistics",
-        "tags": [
-          "Database Performance"
-        ]
+        "tags": ["Database Performance"]
       }
     },
     "/api/v1/database-performance/indexes/unused": {
@@ -13098,9 +12782,7 @@
           }
         ],
         "summary": "Get unused or rarely-used indexes",
-        "tags": [
-          "Database Performance"
-        ]
+        "tags": ["Database Performance"]
       }
     },
     "/api/v1/database-performance/indexes/recommendations": {
@@ -13118,9 +12800,7 @@
           }
         ],
         "summary": "Get index optimization recommendations",
-        "tags": [
-          "Database Performance"
-        ]
+        "tags": ["Database Performance"]
       }
     },
     "/api/v1/database-performance/indexes/duplicates": {
@@ -13138,9 +12818,7 @@
           }
         ],
         "summary": "Get duplicate index candidates",
-        "tags": [
-          "Database Performance"
-        ]
+        "tags": ["Database Performance"]
       }
     },
     "/api/v1/database-performance/query-analysis": {
@@ -13158,9 +12836,7 @@
           }
         ],
         "summary": "Get real-time query analysis including slow query detection and N+1 alerts",
-        "tags": [
-          "Database Performance"
-        ]
+        "tags": ["Database Performance"]
       }
     },
     "/api/v1/database-performance/query-analysis/n-plus-one": {
@@ -13172,12 +12848,7 @@
             "required": false,
             "in": "query",
             "schema": {
-              "enum": [
-                "low",
-                "medium",
-                "high",
-                "critical"
-              ],
+              "enum": ["low", "medium", "high", "critical"],
               "type": "string"
             }
           }
@@ -13193,9 +12864,7 @@
           }
         ],
         "summary": "Get N+1 query detection reports",
-        "tags": [
-          "Database Performance"
-        ]
+        "tags": ["Database Performance"]
       }
     },
     "/api/v1/database-performance/query-analysis/patterns": {
@@ -13222,9 +12891,7 @@
           }
         ],
         "summary": "Get all tracked query patterns with statistics",
-        "tags": [
-          "Database Performance"
-        ]
+        "tags": ["Database Performance"]
       }
     },
     "/api/v1/database-performance/query-analysis/history": {
@@ -13259,9 +12926,7 @@
           }
         ],
         "summary": "Get recent query execution history",
-        "tags": [
-          "Database Performance"
-        ]
+        "tags": ["Database Performance"]
       }
     },
     "/api/v1/database-performance/query-analysis/stats": {
@@ -13279,9 +12944,7 @@
           }
         ],
         "summary": "Get aggregated query execution statistics",
-        "tags": [
-          "Database Performance"
-        ]
+        "tags": ["Database Performance"]
       }
     },
     "/api/v1/database-performance/query-analysis/reset": {
@@ -13299,9 +12962,7 @@
           }
         ],
         "summary": "Reset query analysis data",
-        "tags": [
-          "Database Performance"
-        ]
+        "tags": ["Database Performance"]
       }
     },
     "/api/v1/maintenance": {
@@ -13329,9 +12990,7 @@
           }
         ],
         "summary": "Create a new maintenance request (Tenants only)",
-        "tags": [
-          "Maintenance"
-        ]
+        "tags": ["Maintenance"]
       },
       "get": {
         "operationId": "Maintenance_findAll",
@@ -13366,9 +13025,7 @@
           }
         ],
         "summary": "List maintenance requests with filters",
-        "tags": [
-          "Maintenance"
-        ]
+        "tags": ["Maintenance"]
       }
     },
     "/api/v1/maintenance/{id}": {
@@ -13395,9 +13052,7 @@
           }
         ],
         "summary": "Get detailed maintenance request info",
-        "tags": [
-          "Maintenance"
-        ]
+        "tags": ["Maintenance"]
       }
     },
     "/api/v1/maintenance/{id}/status": {
@@ -13434,9 +13089,7 @@
           }
         ],
         "summary": "Update maintenance request status (Landlords/Admins only)",
-        "tags": [
-          "Maintenance"
-        ]
+        "tags": ["Maintenance"]
       }
     },
     "/v1/health": {
@@ -13465,9 +13118,7 @@
                       },
                       "additionalProperties": {
                         "type": "object",
-                        "required": [
-                          "status"
-                        ],
+                        "required": ["status"],
                         "properties": {
                           "status": {
                             "type": "string"
@@ -13482,9 +13133,7 @@
                       "example": {},
                       "additionalProperties": {
                         "type": "object",
-                        "required": [
-                          "status"
-                        ],
+                        "required": ["status"],
                         "properties": {
                           "status": {
                             "type": "string"
@@ -13503,9 +13152,7 @@
                       },
                       "additionalProperties": {
                         "type": "object",
-                        "required": [
-                          "status"
-                        ],
+                        "required": ["status"],
                         "properties": {
                           "status": {
                             "type": "string"
@@ -13539,9 +13186,7 @@
                       },
                       "additionalProperties": {
                         "type": "object",
-                        "required": [
-                          "status"
-                        ],
+                        "required": ["status"],
                         "properties": {
                           "status": {
                             "type": "string"
@@ -13561,9 +13206,7 @@
                       },
                       "additionalProperties": {
                         "type": "object",
-                        "required": [
-                          "status"
-                        ],
+                        "required": ["status"],
                         "properties": {
                           "status": {
                             "type": "string"
@@ -13586,9 +13229,7 @@
                       },
                       "additionalProperties": {
                         "type": "object",
-                        "required": [
-                          "status"
-                        ],
+                        "required": ["status"],
                         "properties": {
                           "status": {
                             "type": "string"
@@ -13604,9 +13245,7 @@
           }
         },
         "summary": "Basic health check",
-        "tags": [
-          "Health"
-        ]
+        "tags": ["Health"]
       }
     },
     "/v1/health/detailed": {
@@ -13635,9 +13274,7 @@
                       },
                       "additionalProperties": {
                         "type": "object",
-                        "required": [
-                          "status"
-                        ],
+                        "required": ["status"],
                         "properties": {
                           "status": {
                             "type": "string"
@@ -13652,9 +13289,7 @@
                       "example": {},
                       "additionalProperties": {
                         "type": "object",
-                        "required": [
-                          "status"
-                        ],
+                        "required": ["status"],
                         "properties": {
                           "status": {
                             "type": "string"
@@ -13673,9 +13308,7 @@
                       },
                       "additionalProperties": {
                         "type": "object",
-                        "required": [
-                          "status"
-                        ],
+                        "required": ["status"],
                         "properties": {
                           "status": {
                             "type": "string"
@@ -13709,9 +13342,7 @@
                       },
                       "additionalProperties": {
                         "type": "object",
-                        "required": [
-                          "status"
-                        ],
+                        "required": ["status"],
                         "properties": {
                           "status": {
                             "type": "string"
@@ -13731,9 +13362,7 @@
                       },
                       "additionalProperties": {
                         "type": "object",
-                        "required": [
-                          "status"
-                        ],
+                        "required": ["status"],
                         "properties": {
                           "status": {
                             "type": "string"
@@ -13756,9 +13385,7 @@
                       },
                       "additionalProperties": {
                         "type": "object",
-                        "required": [
-                          "status"
-                        ],
+                        "required": ["status"],
                         "properties": {
                           "status": {
                             "type": "string"
@@ -13774,9 +13401,7 @@
           }
         },
         "summary": "Detailed health check",
-        "tags": [
-          "Health"
-        ]
+        "tags": ["Health"]
       }
     },
     "/api/v1/kyc/submit": {
@@ -13808,9 +13433,7 @@
           }
         ],
         "summary": "Submit KYC data",
-        "tags": [
-          "KYC"
-        ]
+        "tags": ["KYC"]
       }
     },
     "/api/v1/kyc/status": {
@@ -13839,9 +13462,7 @@
           }
         ],
         "summary": "Get KYC status",
-        "tags": [
-          "KYC"
-        ]
+        "tags": ["KYC"]
       }
     },
     "/api/v1/kyc/webhook": {
@@ -13865,9 +13486,7 @@
           }
         },
         "summary": "KYC provider webhook",
-        "tags": [
-          "KYC"
-        ]
+        "tags": ["KYC"]
       }
     },
     "/api/v1/admin/kyc/pending": {
@@ -13907,11 +13526,7 @@
             "in": "query",
             "schema": {
               "type": "string",
-              "enum": [
-                "createdAt",
-                "updatedAt",
-                "status"
-              ]
+              "enum": ["createdAt", "updatedAt", "status"]
             }
           },
           {
@@ -13920,10 +13535,7 @@
             "in": "query",
             "schema": {
               "type": "string",
-              "enum": [
-                "asc",
-                "desc"
-              ]
+              "enum": ["asc", "desc"]
             }
           }
         ],
@@ -13941,9 +13553,7 @@
           }
         ],
         "summary": "List pending KYC verifications",
-        "tags": [
-          "Admin KYC"
-        ]
+        "tags": ["Admin KYC"]
       }
     },
     "/api/v1/admin/kyc/rejected": {
@@ -13983,11 +13593,7 @@
             "in": "query",
             "schema": {
               "type": "string",
-              "enum": [
-                "createdAt",
-                "updatedAt",
-                "status"
-              ]
+              "enum": ["createdAt", "updatedAt", "status"]
             }
           },
           {
@@ -13996,10 +13602,7 @@
             "in": "query",
             "schema": {
               "type": "string",
-              "enum": [
-                "asc",
-                "desc"
-              ]
+              "enum": ["asc", "desc"]
             }
           }
         ],
@@ -14017,9 +13620,7 @@
           }
         ],
         "summary": "List rejected KYC verifications",
-        "tags": [
-          "Admin KYC"
-        ]
+        "tags": ["Admin KYC"]
       }
     },
     "/api/v1/admin/kyc/{id}": {
@@ -14049,9 +13650,7 @@
           }
         ],
         "summary": "Get KYC verification detail",
-        "tags": [
-          "Admin KYC"
-        ]
+        "tags": ["Admin KYC"]
       }
     },
     "/api/v1/admin/kyc/{id}/approve": {
@@ -14091,9 +13690,7 @@
           }
         ],
         "summary": "Approve a KYC verification",
-        "tags": [
-          "Admin KYC"
-        ]
+        "tags": ["Admin KYC"]
       }
     },
     "/api/v1/admin/kyc/{id}/reject": {
@@ -14133,9 +13730,7 @@
           }
         ],
         "summary": "Reject a KYC verification",
-        "tags": [
-          "Admin KYC"
-        ]
+        "tags": ["Admin KYC"]
       }
     }
   },
@@ -14424,9 +14019,7 @@
             "example": "Tenant found new job in different city"
           }
         },
-        "required": [
-          "terminationReason"
-        ]
+        "required": ["terminationReason"]
       },
       "RenewAgreementDto": {
         "type": "object",
@@ -14474,10 +14067,7 @@
             "example": "January rent payment"
           }
         },
-        "required": [
-          "amount",
-          "paymentDate"
-        ]
+        "required": ["amount", "paymentDate"]
       },
       "MintNftDto": {
         "type": "object",
@@ -14496,10 +14086,7 @@
           },
           "context": {
             "type": "string",
-            "enum": [
-              "LEASE",
-              "MAINTENANCE"
-            ],
+            "enum": ["LEASE", "MAINTENANCE"],
             "description": "Context of the review"
           },
           "rating": {
@@ -14520,11 +14107,7 @@
             "description": "Property ID when context is LEASE"
           }
         },
-        "required": [
-          "revieweeId",
-          "context",
-          "rating"
-        ]
+        "required": ["revieweeId", "context", "rating"]
       },
       "PostGuestReviewDto": {
         "type": "object",
@@ -14702,10 +14285,7 @@
             "description": "IPFS or external profile hash"
           }
         },
-        "required": [
-          "agentAddress",
-          "profileHash"
-        ]
+        "required": ["agentAddress", "profileHash"]
       },
       "VerifyAgentDto": {
         "type": "object",
@@ -14715,9 +14295,7 @@
             "description": "Agent Stellar public key to verify"
           }
         },
-        "required": [
-          "agentAddress"
-        ]
+        "required": ["agentAddress"]
       },
       "RateAgentDto": {
         "type": "object",
@@ -14741,12 +14319,7 @@
             "description": "Transaction ID for rating"
           }
         },
-        "required": [
-          "raterAddress",
-          "agentAddress",
-          "score",
-          "transactionId"
-        ]
+        "required": ["raterAddress", "agentAddress", "score", "transactionId"]
       },
       "RegisterTransactionDto": {
         "type": "object",
@@ -14767,11 +14340,7 @@
             }
           }
         },
-        "required": [
-          "transactionId",
-          "agentAddress",
-          "parties"
-        ]
+        "required": ["transactionId", "agentAddress", "parties"]
       },
       "RegisterArbiterDto": {
         "type": "object",
@@ -14793,11 +14362,7 @@
             "description": "Specialization area"
           }
         },
-        "required": [
-          "arbiterAddress",
-          "qualifications",
-          "stakeAmount"
-        ]
+        "required": ["arbiterAddress", "qualifications", "stakeAmount"]
       },
       "DeregisterArbiterDto": {
         "type": "object",
@@ -14807,9 +14372,7 @@
             "description": "Stellar address of the arbiter to deregister"
           }
         },
-        "required": [
-          "arbiterAddress"
-        ]
+        "required": ["arbiterAddress"]
       },
       "ArbiterInfoDto": {
         "type": "object",
@@ -14831,10 +14394,7 @@
             "description": "Required specialization"
           }
         },
-        "required": [
-          "disputeId",
-          "count"
-        ]
+        "required": ["disputeId", "count"]
       },
       "ReputationScoreDto": {
         "type": "object",
@@ -14864,11 +14424,7 @@
             "description": "Reasoning for the vote"
           }
         },
-        "required": [
-          "disputeId",
-          "arbiterAddress",
-          "vote"
-        ]
+        "required": ["disputeId", "arbiterAddress", "vote"]
       },
       "CastVoteDto": {
         "type": "object",
@@ -14890,11 +14446,7 @@
             "description": "Comment on the vote"
           }
         },
-        "required": [
-          "agreementId",
-          "arbiterSecretKey",
-          "favorLandlord"
-        ]
+        "required": ["agreementId", "arbiterSecretKey", "favorLandlord"]
       },
       "VoteResultsDto": {
         "type": "object",
@@ -14908,9 +14460,7 @@
             "description": "Agreement ID"
           }
         },
-        "required": [
-          "agreementId"
-        ]
+        "required": ["agreementId"]
       },
       "EnforceResolutionDto": {
         "type": "object",
@@ -14922,20 +14472,14 @@
           "outcome": {
             "type": "string",
             "description": "Dispute outcome",
-            "enum": [
-              "FavorLandlord",
-              "FavorTenant"
-            ]
+            "enum": ["FavorLandlord", "FavorTenant"]
           },
           "enforcementAction": {
             "type": "string",
             "description": "Enforcement action details"
           }
         },
-        "required": [
-          "disputeId",
-          "outcome"
-        ]
+        "required": ["disputeId", "outcome"]
       },
       "DisputeEnforcementResultDto": {
         "type": "object",
@@ -14961,12 +14505,7 @@
             "type": "string"
           }
         },
-        "required": [
-          "userAddress",
-          "userSecret",
-          "agreementId",
-          "amount"
-        ]
+        "required": ["userAddress", "userSecret", "agreementId", "amount"]
       },
       "SetFeeCollectorDto": {
         "type": "object",
@@ -14975,9 +14514,7 @@
             "type": "string"
           }
         },
-        "required": [
-          "collectorAddress"
-        ]
+        "required": ["collectorAddress"]
       },
       "RegisterPropertyDto": {
         "type": "object",
@@ -14999,10 +14536,7 @@
             "example": "https://example.com/webhooks/chioma"
           },
           "events": {
-            "example": [
-              "payment.received",
-              "agreement.activated"
-            ],
+            "example": ["payment.received", "agreement.activated"],
             "type": "array",
             "items": {
               "type": "string"
@@ -15017,10 +14551,7 @@
             "default": true
           }
         },
-        "required": [
-          "url",
-          "events"
-        ]
+        "required": ["url", "events"]
       },
       "UpdateWebhookEndpointDto": {
         "type": "object",
@@ -15038,9 +14569,7 @@
             "description": "JSON-encoded string or object payload to send"
           }
         },
-        "required": [
-          "event"
-        ]
+        "required": ["event"]
       },
       "RetryWebhookDeliveryDto": {
         "type": "object",
@@ -15092,12 +14621,7 @@
             "type": "string",
             "example": "user",
             "description": "User role in the system",
-            "enum": [
-              "user",
-              "admin",
-              "agent",
-              "super_admin"
-            ]
+            "enum": ["user", "admin", "agent", "super_admin"]
           },
           "phoneNumber": {
             "type": "string",
@@ -15110,13 +14634,7 @@
             "description": "Referral code from another user (optional)"
           }
         },
-        "required": [
-          "email",
-          "password",
-          "firstName",
-          "lastName",
-          "role"
-        ]
+        "required": ["email", "password", "firstName", "lastName", "role"]
       },
       "UserProfileDto": {
         "type": "object",
@@ -15146,13 +14664,7 @@
             "description": "User role"
           }
         },
-        "required": [
-          "id",
-          "email",
-          "firstName",
-          "lastName",
-          "role"
-        ]
+        "required": ["id", "email", "firstName", "lastName", "role"]
       },
       "AuthResponseDto": {
         "type": "object",
@@ -15179,10 +14691,7 @@
             "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
           }
         },
-        "required": [
-          "accessToken",
-          "user"
-        ]
+        "required": ["accessToken", "user"]
       },
       "ErrorResponseDto": {
         "type": "object",
@@ -15313,10 +14822,7 @@
             "description": "Amount that was requested for the operation"
           }
         },
-        "required": [
-          "statusCode",
-          "message"
-        ]
+        "required": ["statusCode", "message"]
       },
       "LoginDto": {
         "type": "object",
@@ -15333,10 +14839,7 @@
             "minLength": 8
           }
         },
-        "required": [
-          "email",
-          "password"
-        ]
+        "required": ["email", "password"]
       },
       "CompleteMfaLoginDto": {
         "type": "object",
@@ -15352,10 +14855,7 @@
             "description": "TOTP token from authenticator app or backup code"
           }
         },
-        "required": [
-          "mfaToken",
-          "mfaCode"
-        ]
+        "required": ["mfaToken", "mfaCode"]
       },
       "RefreshTokenDto": {
         "type": "object",
@@ -15366,9 +14866,7 @@
             "description": "Refresh token"
           }
         },
-        "required": [
-          "refreshToken"
-        ]
+        "required": ["refreshToken"]
       },
       "MessageResponseDto": {
         "type": "object",
@@ -15378,9 +14876,7 @@
             "example": "Operation successful"
           }
         },
-        "required": [
-          "message"
-        ]
+        "required": ["message"]
       },
       "ForgotPasswordDto": {
         "type": "object",
@@ -15391,9 +14887,7 @@
             "description": "Email address for password reset"
           }
         },
-        "required": [
-          "email"
-        ]
+        "required": ["email"]
       },
       "ResetPasswordDto": {
         "type": "object",
@@ -15409,10 +14903,7 @@
             "description": "New password"
           }
         },
-        "required": [
-          "token",
-          "newPassword"
-        ]
+        "required": ["token", "newPassword"]
       },
       "CompleteProfileDto": {
         "type": "object",
@@ -15431,9 +14922,7 @@
             "example": "Okafor"
           }
         },
-        "required": [
-          "email"
-        ]
+        "required": ["email"]
       },
       "EnableMfaDto": {
         "type": "object",
@@ -15457,9 +14946,7 @@
             "maxLength": 8
           }
         },
-        "required": [
-          "token"
-        ]
+        "required": ["token"]
       },
       "DisableMfaDto": {
         "type": "object",
@@ -15470,9 +14957,7 @@
             "description": "TOTP token or backup code to confirm MFA disable"
           }
         },
-        "required": [
-          "token"
-        ]
+        "required": ["token"]
       },
       "StellarAuthChallengeDto": {
         "type": "object",
@@ -15483,9 +14968,7 @@
             "description": "Stellar wallet public key"
           }
         },
-        "required": [
-          "walletAddress"
-        ]
+        "required": ["walletAddress"]
       },
       "StellarAuthResponseDto": {
         "type": "object",
@@ -15501,10 +14984,7 @@
             "description": "Challenge expiration time"
           }
         },
-        "required": [
-          "challenge",
-          "expiresAt"
-        ]
+        "required": ["challenge", "expiresAt"]
       },
       "StellarAuthVerifyDto": {
         "type": "object",
@@ -15525,11 +15005,7 @@
             "description": "Challenge transaction XDR"
           }
         },
-        "required": [
-          "walletAddress",
-          "signature",
-          "challenge"
-        ]
+        "required": ["walletAddress", "signature", "challenge"]
       },
       "OAuth2CallbackDto": {
         "type": "object",
@@ -15567,11 +15043,7 @@
             "description": "MIME type (e.g. application/pdf, image/jpeg)"
           }
         },
-        "required": [
-          "fileName",
-          "fileSize",
-          "fileType"
-        ]
+        "required": ["fileName", "fileSize", "fileType"]
       },
       "UploadUrlResponseDto": {
         "type": "object",
@@ -15585,10 +15057,7 @@
             "description": "Storage key for later download"
           }
         },
-        "required": [
-          "url",
-          "key"
-        ]
+        "required": ["url", "key"]
       },
       "DownloadUrlResponseDto": {
         "type": "object",
@@ -15598,9 +15067,7 @@
             "description": "Pre-signed download URL"
           }
         },
-        "required": [
-          "url"
-        ]
+        "required": ["url"]
       },
       "FileMetadataResponseDto": {
         "type": "object",
@@ -15662,9 +15129,7 @@
             "description": "New file name"
           }
         },
-        "required": [
-          "fileName"
-        ]
+        "required": ["fileName"]
       },
       "UpdateUserProfileDto": {
         "type": "object",
@@ -15775,10 +15240,7 @@
             "type": "boolean"
           }
         },
-        "required": [
-          "newMessages",
-          "criticalAlerts"
-        ]
+        "required": ["newMessages", "criticalAlerts"]
       },
       "NotificationPreferencesDto": {
         "type": "object",
@@ -15793,11 +15255,7 @@
             "type": "boolean"
           }
         },
-        "required": [
-          "email",
-          "push",
-          "inAppSummary"
-        ]
+        "required": ["email", "push", "inAppSummary"]
       },
       "UpdateNotificationPreferencesDto": {
         "type": "object",
@@ -15807,11 +15265,7 @@
           },
           "appearanceTheme": {
             "type": "string",
-            "enum": [
-              "light",
-              "dark",
-              "system"
-            ]
+            "enum": ["light", "dark", "system"]
           },
           "language": {
             "type": "string"
@@ -15820,12 +15274,7 @@
             "type": "string"
           }
         },
-        "required": [
-          "notifications",
-          "appearanceTheme",
-          "language",
-          "currency"
-        ]
+        "required": ["notifications", "appearanceTheme", "language", "currency"]
       },
       "UserRestoreDto": {
         "type": "object",
@@ -15841,10 +15290,7 @@
             "description": "Password of the account to restore"
           }
         },
-        "required": [
-          "email",
-          "password"
-        ]
+        "required": ["email", "password"]
       },
       "CreatePropertyImageDto": {
         "type": "object",
@@ -15867,9 +15313,7 @@
             "default": false
           }
         },
-        "required": [
-          "url"
-        ]
+        "required": ["url"]
       },
       "CreatePropertyAmenityDto": {
         "type": "object",
@@ -15885,9 +15329,7 @@
             "example": "pool"
           }
         },
-        "required": [
-          "name"
-        ]
+        "required": ["name"]
       },
       "CreateRentalUnitDto": {
         "type": "object",
@@ -15923,10 +15365,7 @@
             "example": 1500
           }
         },
-        "required": [
-          "unitNumber",
-          "price"
-        ]
+        "required": ["unitNumber", "price"]
       },
       "CreatePropertyDto": {
         "type": "object",
@@ -15944,13 +15383,7 @@
           "type": {
             "type": "string",
             "description": "Type of property",
-            "enum": [
-              "apartment",
-              "house",
-              "commercial",
-              "land",
-              "other"
-            ],
+            "enum": ["apartment", "house", "commercial", "land", "other"],
             "example": "apartment",
             "default": "apartment"
           },
@@ -16103,10 +15536,7 @@
             }
           }
         },
-        "required": [
-          "title",
-          "price"
-        ]
+        "required": ["title", "price"]
       },
       "UpdatePropertyDto": {
         "type": "object",
@@ -16124,13 +15554,7 @@
           "type": {
             "type": "string",
             "description": "Type of property",
-            "enum": [
-              "apartment",
-              "house",
-              "commercial",
-              "land",
-              "other"
-            ],
+            "enum": ["apartment", "house", "commercial", "land", "other"],
             "example": "apartment",
             "default": "apartment"
           },
@@ -16285,12 +15709,7 @@
           "status": {
             "type": "string",
             "description": "Listing status",
-            "enum": [
-              "draft",
-              "published",
-              "rented",
-              "archived"
-            ],
+            "enum": ["draft", "published", "rented", "archived"],
             "example": "published"
           }
         }
@@ -16331,32 +15750,21 @@
           },
           "completedSteps": {
             "description": "Completed steps so far",
-            "example": [
-              1,
-              2
-            ],
+            "example": [1, 2],
             "type": "array",
             "items": {
               "type": "string"
             }
           }
         },
-        "required": [
-          "step",
-          "data"
-        ]
+        "required": ["step", "data"]
       },
       "UpdatePropertyModeDto": {
         "type": "object",
         "properties": {
           "rentalMode": {
             "type": "string",
-            "enum": [
-              "long_term",
-              "short_term",
-              "hybrid",
-              "flexible"
-            ]
+            "enum": ["long_term", "short_term", "hybrid", "flexible"]
           },
           "minStayDays": {
             "type": "number",
@@ -16404,11 +15812,7 @@
           },
           "cancellationPolicy": {
             "type": "string",
-            "enum": [
-              "flexible",
-              "moderate",
-              "strict"
-            ]
+            "enum": ["flexible", "moderate", "strict"]
           },
           "checkInTime": {
             "type": "string",
@@ -16461,12 +15865,7 @@
         "properties": {
           "newMode": {
             "type": "string",
-            "enum": [
-              "long_term",
-              "short_term",
-              "hybrid",
-              "flexible"
-            ]
+            "enum": ["long_term", "short_term", "hybrid", "flexible"]
           }
         }
       },
@@ -16498,28 +15897,20 @@
             "example": "uuid-of-booking"
           }
         },
-        "required": [
-          "startDate",
-          "endDate"
-        ]
+        "required": ["startDate", "endDate"]
       },
       "BlockDatesDto": {
         "type": "object",
         "properties": {
           "dates": {
-            "example": [
-              "2026-04-10",
-              "2026-04-11"
-            ],
+            "example": ["2026-04-10", "2026-04-11"],
             "type": "array",
             "items": {
               "type": "string"
             }
           }
         },
-        "required": [
-          "dates"
-        ]
+        "required": ["dates"]
       },
       "SetPriceDto": {
         "type": "object",
@@ -16533,10 +15924,7 @@
             "example": 200
           }
         },
-        "required": [
-          "date",
-          "price"
-        ]
+        "required": ["date", "price"]
       },
       "CheckTransactionFraudDto": {
         "type": "object",
@@ -16573,10 +15961,7 @@
             "description": "Device fingerprint for fraud analysis"
           }
         },
-        "required": [
-          "userId",
-          "amount"
-        ]
+        "required": ["userId", "amount"]
       },
       "CreateDisputeDto": {
         "type": "object",
@@ -16637,11 +16022,7 @@
             "maxLength": 128
           }
         },
-        "required": [
-          "agreementId",
-          "disputeType",
-          "description"
-        ]
+        "required": ["agreementId", "disputeType", "description"]
       },
       "UpdateDisputeDto": {
         "type": "object",
@@ -16692,10 +16073,7 @@
             "maxLength": 500
           }
         },
-        "required": [
-          "fileName",
-          "fileType"
-        ]
+        "required": ["fileName", "fileType"]
       },
       "AddCommentDto": {
         "type": "object",
@@ -16712,9 +16090,7 @@
             "description": "Whether this comment is internal (not visible to the other party)"
           }
         },
-        "required": [
-          "content"
-        ]
+        "required": ["content"]
       },
       "ResolveDisputeDto": {
         "type": "object",
@@ -16733,9 +16109,7 @@
             "maximum": 999999999.99
           }
         },
-        "required": [
-          "resolution"
-        ]
+        "required": ["resolution"]
       },
       "AdminUpdateDisputeDto": {
         "type": "object",
@@ -16798,18 +16172,10 @@
           },
           "paymentMethod": {
             "type": "string",
-            "enum": [
-              "card",
-              "stellar"
-            ]
+            "enum": ["card", "stellar"]
           }
         },
-        "required": [
-          "propertyId",
-          "checkIn",
-          "checkOut",
-          "guests"
-        ]
+        "required": ["propertyId", "checkIn", "checkOut", "guests"]
       },
       "CreatePaymentRecordDto": {
         "type": "object",
@@ -16835,12 +16201,7 @@
             "description": "Optional idempotency key for safely retrying payment creation"
           }
         },
-        "required": [
-          "userAddress",
-          "userSecret",
-          "agreementId",
-          "amount"
-        ]
+        "required": ["userAddress", "userSecret", "agreementId", "amount"]
       },
       "CreateEscrowGatewayDto": {
         "type": "object",
@@ -16865,11 +16226,7 @@
             "description": "Optional idempotency key for safely retrying escrow creation"
           }
         },
-        "required": [
-          "sourcePublicKey",
-          "destinationPublicKey",
-          "amount"
-        ]
+        "required": ["sourcePublicKey", "destinationPublicKey", "amount"]
       },
       "ReleaseEscrowGatewayDto": {
         "type": "object",
@@ -16951,10 +16308,7 @@
             "type": "string"
           }
         },
-        "required": [
-          "eventType",
-          "status"
-        ]
+        "required": ["eventType", "status"]
       },
       "RefundWebhookDto": {
         "type": "object",
@@ -16994,10 +16348,7 @@
             "type": "string"
           }
         },
-        "required": [
-          "eventType",
-          "status"
-        ]
+        "required": ["eventType", "status"]
       },
       "AdminRefundDecisionDto": {
         "type": "object",
@@ -17016,11 +16367,7 @@
         "properties": {
           "accountType": {
             "type": "string",
-            "enum": [
-              "user",
-              "admin",
-              "agent"
-            ],
+            "enum": ["user", "admin", "agent"],
             "description": "The type of account (user, admin, or agent)",
             "example": "user"
           },
@@ -17052,9 +16399,7 @@
             }
           }
         },
-        "required": [
-          "accountType"
-        ]
+        "required": ["accountType"]
       },
       "ProfileCreatedResponseDto": {
         "type": "object",
@@ -17085,22 +16430,14 @@
             "example": "https://gateway.pinata.cloud/ipfs/bafybeigdyrzt5sfp7udm7hu76uh7y26nf3efuylqabf3oclgtqy55fbzdi"
           }
         },
-        "required": [
-          "message",
-          "transactionHash",
-          "dataHash"
-        ]
+        "required": ["message", "transactionHash", "dataHash"]
       },
       "UpdateProfileDto": {
         "type": "object",
         "properties": {
           "accountType": {
             "type": "string",
-            "enum": [
-              "user",
-              "admin",
-              "agent"
-            ],
+            "enum": ["user", "admin", "agent"],
             "description": "The type of account (user, admin, or agent)",
             "example": "admin"
           },
@@ -17167,11 +16504,7 @@
             "example": "https://gateway.pinata.cloud/ipfs/bafybeigdyrzt5sfp7udm7hu76uh7y26nf3efuylqabf3oclgtqy55fbzdi"
           }
         },
-        "required": [
-          "message",
-          "onChainUpdated",
-          "dataHash"
-        ]
+        "required": ["message", "onChainUpdated", "dataHash"]
       },
       "OnChainDataDto": {
         "type": "object",
@@ -17188,11 +16521,7 @@
           },
           "accountType": {
             "type": "string",
-            "enum": [
-              "user",
-              "admin",
-              "agent"
-            ],
+            "enum": ["user", "admin", "agent"],
             "description": "Account type",
             "example": "user"
           },
@@ -17270,10 +16599,7 @@
             "example": "2024-01-31T12:00:00Z"
           }
         },
-        "required": [
-          "dataHash",
-          "lastSyncedAt"
-        ]
+        "required": ["dataHash", "lastSyncedAt"]
       },
       "ProfileResponseDto": {
         "type": "object",
@@ -17305,10 +16631,7 @@
             "example": true
           }
         },
-        "required": [
-          "walletAddress",
-          "dataIntegrityValid"
-        ]
+        "required": ["walletAddress", "dataIntegrityValid"]
       },
       "DataIntegrityResponseDto": {
         "type": "object",
@@ -17334,11 +16657,7 @@
             "example": "Data integrity verified: off-chain data matches on-chain hash"
           }
         },
-        "required": [
-          "valid",
-          "computedHash",
-          "message"
-        ]
+        "required": ["valid", "computedHash", "message"]
       },
       "CreateDocumentDto": {
         "type": "object",
@@ -17350,13 +16669,7 @@
           "type": {
             "type": "string",
             "example": "LEASE",
-            "enum": [
-              "LEASE",
-              "INSPECTION",
-              "RECEIPT",
-              "CONTRACT",
-              "OTHER"
-            ]
+            "enum": ["LEASE", "INSPECTION", "RECEIPT", "CONTRACT", "OTHER"]
           },
           "category": {
             "type": "string",
@@ -17477,11 +16790,7 @@
           "status": {
             "type": "string",
             "example": "ARCHIVED",
-            "enum": [
-              "ACTIVE",
-              "ARCHIVED",
-              "EXPIRED"
-            ]
+            "enum": ["ACTIVE", "ARCHIVED", "EXPIRED"]
           },
           "description": {
             "type": "string",
@@ -17497,9 +16806,7 @@
             "example": "uuid-of-tenant"
           }
         },
-        "required": [
-          "tenantId"
-        ]
+        "required": ["tenantId"]
       },
       "SubmitFeedbackDto": {
         "type": "object",
@@ -17516,18 +16823,11 @@
           },
           "type": {
             "type": "string",
-            "enum": [
-              "bug",
-              "feature",
-              "support",
-              "general"
-            ],
+            "enum": ["bug", "feature", "support", "general"],
             "default": "general"
           }
         },
-        "required": [
-          "message"
-        ]
+        "required": ["message"]
       },
       "CreateApiKeyDto": {
         "type": "object",
@@ -17544,10 +16844,7 @@
             "maxLength": 255
           },
           "permissions": {
-            "example": [
-              "properties:read",
-              "properties:write"
-            ],
+            "example": ["properties:read", "properties:write"],
             "description": "List of permissions/scopes for this key",
             "type": "array",
             "items": {
@@ -17555,9 +16852,7 @@
             }
           }
         },
-        "required": [
-          "name"
-        ]
+        "required": ["name"]
       },
       "UpdateApiKeyDto": {
         "type": "object",
@@ -17579,10 +16874,7 @@
             "example": "2026-06-25T12:00:00Z"
           },
           "permissions": {
-            "example": [
-              "properties:read",
-              "properties:write"
-            ],
+            "example": ["properties:read", "properties:write"],
             "description": "List of permissions/scopes for this key",
             "type": "array",
             "items": {
@@ -17645,10 +16937,7 @@
             "example": false
           },
           "preferredAmenities": {
-            "example": [
-              "WiFi",
-              "Pool"
-            ],
+            "example": ["WiFi", "Pool"],
             "type": "array",
             "items": {
               "type": "string"
@@ -17687,10 +16976,7 @@
             "example": "2024-01-15T10:30:00Z"
           }
         },
-        "required": [
-          "id",
-          "propertyId"
-        ]
+        "required": ["id", "propertyId"]
       },
       "FavoriteStatusDto": {
         "type": "object",
@@ -17706,10 +16992,7 @@
             "example": 42
           }
         },
-        "required": [
-          "isFavorited",
-          "favoriteCount"
-        ]
+        "required": ["isFavorited", "favoriteCount"]
       },
       "AddFavoriteDto": {
         "type": "object",
@@ -17720,9 +17003,7 @@
             "example": "550e8400-e29b-41d4-a716-446655440001"
           }
         },
-        "required": [
-          "propertyId"
-        ]
+        "required": ["propertyId"]
       },
       "CreateTenantScreeningRequestDto": {
         "type": "object",
@@ -17735,27 +17016,16 @@
           "provider": {
             "type": "string",
             "example": "CHECKR",
-            "enum": [
-              "TRANSUNION_SMARTMOVE",
-              "EXPERIAN_CONNECT"
-            ],
+            "enum": ["TRANSUNION_SMARTMOVE", "EXPERIAN_CONNECT"],
             "description": "Preferred screening provider"
           },
           "requestedChecks": {
             "type": "array",
-            "example": [
-              "IDENTITY",
-              "CRIMINAL",
-              "EVICTION"
-            ],
+            "example": ["IDENTITY", "CRIMINAL", "EVICTION"],
             "description": "Types of screening checks to perform",
             "items": {
               "type": "string",
-              "enum": [
-                "CREDIT",
-                "BACKGROUND",
-                "RENTAL_HISTORY"
-              ]
+              "enum": ["CREDIT", "BACKGROUND", "RENTAL_HISTORY"]
             }
           },
           "applicantData": {
@@ -17804,9 +17074,7 @@
             "description": "ISO 8601 date when the consent expires"
           }
         },
-        "required": [
-          "consentTextVersion"
-        ]
+        "required": ["consentTextVersion"]
       },
       "TenantScreeningWebhookDto": {
         "type": "object",
@@ -17839,12 +17107,7 @@
           "riskLevel": {
             "type": "string",
             "example": "LOW",
-            "enum": [
-              "LOW",
-              "MEDIUM",
-              "HIGH",
-              "REVIEW"
-            ],
+            "enum": ["LOW", "MEDIUM", "HIGH", "REVIEW"],
             "description": "Calculated risk level from the screening"
           },
           "failureReason": {
@@ -17861,10 +17124,7 @@
             "description": "Full report object from the screening provider"
           }
         },
-        "required": [
-          "providerReference",
-          "status"
-        ]
+        "required": ["providerReference", "status"]
       },
       "CreatePropertyInquiryDto": {
         "type": "object",
@@ -17890,10 +17150,7 @@
             "description": "Sender phone number"
           }
         },
-        "required": [
-          "propertyId",
-          "message"
-        ]
+        "required": ["propertyId", "message"]
       },
       "GenerateReportDto": {
         "type": "object",
@@ -17923,29 +17180,20 @@
             }
           }
         },
-        "required": [
-          "kycData"
-        ]
+        "required": ["kycData"]
       },
       "KycStatusResponseDto": {
         "type": "object",
         "properties": {
           "status": {
             "type": "string",
-            "enum": [
-              "PENDING",
-              "APPROVED",
-              "REJECTED",
-              "NEEDS_INFO"
-            ]
+            "enum": ["PENDING", "APPROVED", "REJECTED", "NEEDS_INFO"]
           },
           "reason": {
             "type": "string"
           }
         },
-        "required": [
-          "status"
-        ]
+        "required": ["status"]
       },
       "KycWebhookDto": {
         "type": "object",
@@ -17956,21 +17204,13 @@
           },
           "status": {
             "type": "string",
-            "enum": [
-              "PENDING",
-              "APPROVED",
-              "REJECTED",
-              "NEEDS_INFO"
-            ]
+            "enum": ["PENDING", "APPROVED", "REJECTED", "NEEDS_INFO"]
           },
           "reason": {
             "type": "string"
           }
         },
-        "required": [
-          "providerReference",
-          "status"
-        ]
+        "required": ["providerReference", "status"]
       },
       "KycDecisionDto": {
         "type": "object",

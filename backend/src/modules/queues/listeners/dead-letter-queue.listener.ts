@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 caxton strange
+
 import { Injectable, Logger } from '@nestjs/common';
 import { OnQueueFailed, Process, Processor } from '@nestjs/bull';
 import { Job } from 'bull';
@@ -53,6 +56,11 @@ export class DeadLetterQueueListener {
   @OnQueueFailed({ name: 'analytics' })
   async onAnalyticsFailed(job: Job, error: Error): Promise<void> {
     await this.handleFailed('analytics', job, error);
+  }
+
+  @OnQueueFailed({ name: 'video-processing' })
+  async onVideoProcessingFailed(job: Job, error: Error): Promise<void> {
+    await this.handleFailed('video-processing', job, error);
   }
 
   private async handleFailed(

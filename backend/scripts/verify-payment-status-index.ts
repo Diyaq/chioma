@@ -1,4 +1,8 @@
 #!/usr/bin/env ts-node
+
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 caxton strange
+
 /**
  * Verifies that payment status queries can use the composite index
  * IDX_payments_user_status_created_at (issue #1405).

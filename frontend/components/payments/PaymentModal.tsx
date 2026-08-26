@@ -1,4 +1,8 @@
 'use client';
+
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 caxton strange
+
 import React, { useState, useEffect } from 'react';
 import { BaseModal } from '@/components/modals/BaseModal';
 import {

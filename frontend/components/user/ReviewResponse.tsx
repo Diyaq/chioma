@@ -1,4 +1,8 @@
 'use client';
+
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 caxton strange
+
 import { useState } from 'react';
 
 export default function ReviewResponse({

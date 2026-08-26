@@ -1,4 +1,8 @@
 #!/usr/bin/env ts-node
+
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 caxton strange
+
 /**
  * Database Index Review Script
  *

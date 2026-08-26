@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 caxton strange
+
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ScheduleModule } from '@nestjs/schedule';
@@ -11,9 +14,13 @@ import { DataArchivalService } from './data-archival.service';
 import { SecurityPatchManagementService } from './security-patch-management.service';
 import { DatabaseMaintenanceService } from './database-maintenance.service';
 import { OrphanedRecordsCleanupService } from './orphaned-records-cleanup.service';
+import { DataRetentionService } from './data-retention.service';
+import { DataRetentionController } from './data-retention.controller';
 import { TenantScreeningRequest } from '../screening/entities/tenant-screening-request.entity';
 import { TenantScreeningReport } from '../screening/entities/tenant-screening-report.entity';
 import { TenantScreeningConsent } from '../screening/entities/tenant-screening-consent.entity';
+import { User } from '../users/entities/user.entity';
+import { Notification } from '../notifications/entities/notification.entity';
 
 @Module({
   imports: [
@@ -21,10 +28,16 @@ import { TenantScreeningConsent } from '../screening/entities/tenant-screening-c
       TenantScreeningRequest,
       TenantScreeningReport,
       TenantScreeningConsent,
+      User,
+      Notification,
     ]),
     ScheduleModule.forRoot(),
   ],
-  controllers: [CleanupController, DataArchivalController],
+  controllers: [
+    CleanupController,
+    DataArchivalController,
+    DataRetentionController,
+  ],
   providers: [
     CodeQualityAnalysisService,
     AutomatedRefactoringService,
@@ -34,12 +47,14 @@ import { TenantScreeningConsent } from '../screening/entities/tenant-screening-c
     SecurityPatchManagementService,
     DatabaseMaintenanceService,
     OrphanedRecordsCleanupService,
+    DataRetentionService,
   ],
   exports: [
     DataArchivalService,
     SecurityPatchManagementService,
     DatabaseMaintenanceService,
     OrphanedRecordsCleanupService,
+    DataRetentionService,
   ],
 })
 export class CleanupModule {}

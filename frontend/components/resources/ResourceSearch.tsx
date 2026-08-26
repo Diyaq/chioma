@@ -1,4 +1,8 @@
 'use client';
+
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 caxton strange
+
 import { Search } from 'lucide-react';
 
 export default function ResourceSearch({

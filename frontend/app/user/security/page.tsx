@@ -1,4 +1,8 @@
 'use client';
+
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 caxton strange
+
 import { ShieldCheck, Lock, Smartphone, AlertTriangle } from 'lucide-react';
 
 export default function TenantSecurityPage() {

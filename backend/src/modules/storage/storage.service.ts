@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 caxton strange
+
 import {
   Injectable,
   NotFoundException,
@@ -6,6 +9,8 @@ import {
 } from '@nestjs/common';
 import { Retry } from '../../common/decorators/retry.decorator';
 import { InjectRepository } from '@nestjs/typeorm';
+import { InjectQueue } from '@nestjs/bull';
+import { Queue } from 'bull';
 import {
   S3Client,
   PutObjectCommand,
@@ -17,6 +22,7 @@ import { FileMetadata } from './file-metadata.entity';
 
 import { ImageProcessingService } from './image-processing.service';
 import { Repository } from 'typeorm';
+import type { VideoProcessingJobData } from './video-processing.service';
 
 const ALLOWED_IMAGE_TYPES = [
   'image/jpeg',
@@ -31,7 +37,9 @@ const ALLOWED_DOC_TYPES = [
   'application/vnd.ms-excel',
   'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
 ];
+const ALLOWED_VIDEO_TYPES = ['video/mp4', 'video/quicktime', 'video/webm'];
 const MAX_SIZE = 50 * 1024 * 1024; // 50MB
+const MAX_VIDEO_SIZE = 500 * 1024 * 1024; // 500MB
 
 @Injectable()
 export class StorageService {
@@ -45,6 +53,8 @@ export class StorageService {
     @InjectRepository(FileMetadata)
     private readonly fileMetadataRepo: Repository<FileMetadata>,
     private readonly imageProcessing: ImageProcessingService,
+    @InjectQueue('video-processing')
+    private readonly videoQueue: Queue<VideoProcessingJobData>,
   ) {
     this.region = process.env.AWS_REGION || 'us-east-1';
     this.bucket = process.env.AWS_S3_BUCKET || '';
@@ -67,12 +77,21 @@ export class StorageService {
     fileSize: number,
     expiresIn = 300,
   ): Promise<string> {
-    const allowedTypes = [...ALLOWED_IMAGE_TYPES, ...ALLOWED_DOC_TYPES];
+    const allowedTypes = [
+      ...ALLOWED_IMAGE_TYPES,
+      ...ALLOWED_DOC_TYPES,
+      ...ALLOWED_VIDEO_TYPES,
+    ];
     if (!allowedTypes.includes(contentType)) {
       throw new BadRequestException('Invalid file type');
     }
-    if (fileSize > MAX_SIZE) {
-      throw new BadRequestException('File too large (max 50MB)');
+    const maxSize = ALLOWED_VIDEO_TYPES.includes(contentType)
+      ? MAX_VIDEO_SIZE
+      : MAX_SIZE;
+    if (fileSize > maxSize) {
+      throw new BadRequestException(
+        `File too large (max ${maxSize / (1024 * 1024)}MB)`,
+      );
     }
 
     await this.fileMetadataRepo.save({
@@ -97,13 +116,49 @@ export class StorageService {
     contentType: string,
     ownerId: string,
     fileName: string,
-  ): Promise<{ url: string; variants?: Record<string, string> }> {
-    const allowedTypes = [...ALLOWED_IMAGE_TYPES, ...ALLOWED_DOC_TYPES];
+  ): Promise<{
+    url: string;
+    variants?: Record<string, string>;
+    processingStatus?: FileMetadata['processingStatus'];
+  }> {
+    const allowedTypes = [
+      ...ALLOWED_IMAGE_TYPES,
+      ...ALLOWED_DOC_TYPES,
+      ...ALLOWED_VIDEO_TYPES,
+    ];
     if (!allowedTypes.includes(contentType)) {
       throw new BadRequestException('Invalid file type');
     }
-    if (buffer.length > MAX_SIZE) {
-      throw new BadRequestException('File too large (max 50MB)');
+    const maxSize = ALLOWED_VIDEO_TYPES.includes(contentType)
+      ? MAX_VIDEO_SIZE
+      : MAX_SIZE;
+    if (buffer.length > maxSize) {
+      throw new BadRequestException(
+        `File too large (max ${maxSize / (1024 * 1024)}MB)`,
+      );
+    }
+
+    // Videos are uploaded as-is and transcoded asynchronously on a queue so
+    // large files don't block the request (see VideoProcessingService).
+    if (ALLOWED_VIDEO_TYPES.includes(contentType)) {
+      await this.putObject(key, buffer, contentType);
+
+      await this.fileMetadataRepo.save({
+        fileName,
+        fileSize: buffer.length,
+        fileType: contentType,
+        s3Key: key,
+        ownerId,
+        processingStatus: 'pending',
+      });
+
+      await this.videoQueue.add({ key, ownerId, contentType });
+
+      return {
+        url: this.getPublicUrl(key),
+        variants: {},
+        processingStatus: 'pending',
+      };
     }
 
     const variants: Record<string, string> = {};
@@ -242,6 +297,40 @@ export class StorageService {
       throw new NotFoundException('File not found');
     }
     return file;
+  }
+
+  /** Fetches the raw bytes of a stored object, for internal processing (e.g. transcoding). */
+  async getObjectBuffer(key: string): Promise<Buffer> {
+    const response = await this.s3.send(
+      new GetObjectCommand({ Bucket: this.bucket, Key: key }),
+    );
+    const bytes = await response.Body?.transformToByteArray();
+    if (!bytes) {
+      throw new NotFoundException(`Object not found: ${key}`);
+    }
+    return Buffer.from(bytes);
+  }
+
+  /** Uploads a derived asset (e.g. a transcoded video variant) and returns its public URL. */
+  async uploadFile(
+    key: string,
+    buffer: Buffer,
+    contentType: string,
+  ): Promise<string> {
+    await this.putObject(key, buffer, contentType);
+    return this.getPublicUrl(key);
+  }
+
+  /** Records the outcome of async post-upload processing (e.g. video transcoding). */
+  async updateProcessingResult(
+    key: string,
+    variants: Record<string, string>,
+    status: FileMetadata['processingStatus'],
+  ): Promise<void> {
+    await this.fileMetadataRepo.update(
+      { s3Key: key },
+      { variants, processingStatus: status },
+    );
   }
 
   @Retry({

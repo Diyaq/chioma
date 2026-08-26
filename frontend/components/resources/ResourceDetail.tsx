@@ -1,4 +1,8 @@
 'use client';
+
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 caxton strange
+
 import Link from 'next/link';
 
 export default function ResourceDetail({ slug: _slug }: { slug: string }) {

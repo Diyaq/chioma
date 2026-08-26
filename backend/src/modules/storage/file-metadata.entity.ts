@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 caxton strange
+
 import {
   Entity,
   Column,
@@ -25,6 +28,18 @@ export class FileMetadata {
 
   @Column()
   ownerId: string;
+
+  /**
+   * Async processing state for files that need post-upload work (currently
+   * video transcoding). Non-video uploads are processed inline and stay
+   * 'completed'.
+   */
+  @Column({ type: 'varchar', length: 20, default: 'completed' })
+  processingStatus: 'pending' | 'processing' | 'completed' | 'failed';
+
+  /** Public URLs of generated variants (e.g. video quality tiers), keyed by name. */
+  @Column({ type: 'jsonb', nullable: true })
+  variants: Record<string, string> | null;
 
   @CreateDateColumn()
   createdAt: Date;

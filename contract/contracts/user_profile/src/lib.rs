@@ -1,5 +1,7 @@
-#![no_std]
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 caxton strange
 
+#![no_std]
 mod errors;
 mod events;
 mod profile;

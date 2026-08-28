@@ -15,6 +15,8 @@ import { AuditService } from '../../audit/audit.service';
 import { LockService } from '../../../common/lock';
 import { IdempotencyService } from '../../../common/idempotency';
 import { MalwareScanService } from '../../storage/malware-scan.service';
+import { Payment as GeneralPayment } from '../../payments/entities/payment.entity';
+import { Payment as RentPayment } from '../../rent/entities/payment.entity';
 
 describe('DisputesService – Pagination', () => {
   let service: DisputesService;
@@ -71,6 +73,14 @@ describe('DisputesService – Pagination', () => {
           useValue: mockAgreementRepo,
         },
         { provide: getRepositoryToken(User), useValue: mockUserRepo },
+        {
+          provide: getRepositoryToken(GeneralPayment),
+          useValue: { findOne: jest.fn() },
+        },
+        {
+          provide: getRepositoryToken(RentPayment),
+          useValue: { findOne: jest.fn() },
+        },
         { provide: AuditService, useValue: mockAuditService },
         { provide: DataSource, useValue: mockDataSource },
         { provide: LockService, useValue: mockLockService },

@@ -31,6 +31,8 @@ import { IdempotencyService } from '../../../common/idempotency';
 import { MalwareScanService } from '../../storage/malware-scan.service';
 import { ResolveDisputeDto } from '../dto/resolve-dispute.dto';
 import { AddCommentDto } from '../dto/add-comment.dto';
+import { Payment as GeneralPayment } from '../../payments/entities/payment.entity';
+import { Payment as RentPayment } from '../../rent/entities/payment.entity';
 
 describe('DisputesService — resolution, evidence, comments, agreements', () => {
   let service: DisputesService;
@@ -155,6 +157,14 @@ describe('DisputesService — resolution, evidence, comments, agreements', () =>
           useValue: mockAgreementRepository,
         },
         { provide: getRepositoryToken(User), useValue: mockUserRepository },
+        {
+          provide: getRepositoryToken(GeneralPayment),
+          useValue: { findOne: jest.fn() },
+        },
+        {
+          provide: getRepositoryToken(RentPayment),
+          useValue: { findOne: jest.fn() },
+        },
         { provide: DataSource, useValue: mockDataSource },
         { provide: AuditService, useValue: { log: jest.fn() } },
         {
@@ -319,7 +329,9 @@ describe('DisputesService — resolution, evidence, comments, agreements', () =>
       jest
         .spyOn(service as any, 'checkDisputePermission')
         .mockResolvedValue(undefined);
-      jest.spyOn(service as any, 'validateFile').mockReturnValue(undefined);
+      jest
+        .spyOn(service as any, 'validateFile')
+        .mockReturnValue('application/pdf');
 
       mockEvidenceRepository.create.mockReturnValue(mockEvidence);
       mockEvidenceRepository.save.mockResolvedValue(mockEvidence);
@@ -346,7 +358,9 @@ describe('DisputesService — resolution, evidence, comments, agreements', () =>
       jest
         .spyOn(service as any, 'checkDisputePermission')
         .mockResolvedValue(undefined);
-      jest.spyOn(service as any, 'validateFile').mockReturnValue(undefined);
+      jest
+        .spyOn(service as any, 'validateFile')
+        .mockReturnValue('application/pdf');
 
       mockEvidenceRepository.create.mockReturnValue({
         ...mockEvidence,

@@ -396,6 +396,8 @@ const securitySchema = Joi.object({
 const loggingSchema = Joi.object({
   LOG_LEVEL: Joi.string().valid('debug', 'info', 'warn', 'error'),
   LOG_FORMAT: Joi.string().valid('simple', 'json'),
+  LOG_TRANSPORT: Joi.string(),
+  LOG_FILE: Joi.string(),
   LOG_SLOW_REQUEST_THRESHOLD: Joi.number().min(0),
   LOG_SKIP_PATHS: Joi.string(),
   LOG_MAX_FILES: Joi.string(),

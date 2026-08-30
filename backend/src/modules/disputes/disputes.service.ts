@@ -43,8 +43,6 @@ import {
 } from '../../common/errors/domain-errors';
 import {
   DEFAULT_EVIDENCE_MAX_FILE_SIZE_BYTES,
-  DEFAULT_EVIDENCE_VIDEO_MAX_FILE_SIZE_BYTES,
-  EVIDENCE_VIDEO_MIME_TYPES,
   validateEvidenceFile,
 } from './utils/evidence-file-validation.util';
 
@@ -70,7 +68,6 @@ export class DisputesService {
     private readonly lockService: LockService,
     private readonly idempotencyService: IdempotencyService,
     private readonly malwareScan: MalwareScanService,
-    private readonly queueManagementService: QueueManagementService,
     @Optional() private readonly configService?: ConfigService,
   ) {}
 
@@ -521,7 +518,6 @@ export class DisputesService {
 
     // Validate file content (magic bytes), never the declared MIME header
     const detectedType = this.validateFile(file);
-    const isVideo = EVIDENCE_VIDEO_MIME_TYPES.includes(detectedType);
 
     // Scan the uploaded file before it becomes part of the dispute record.
     // FileInterceptor defaults to multer's memory storage (file.buffer),
@@ -815,11 +811,7 @@ export class DisputesService {
    * Returns the detected content type on success.
    */
   private validateFile(file: any): string {
-    const result = validateEvidenceFile(
-      file,
-      this.getEvidenceMaxSizeBytes(),
-      this.getEvidenceVideoMaxSizeBytes(),
-    );
+    const result = validateEvidenceFile(file, this.getEvidenceMaxSizeBytes());
     if (!result.isValid || !result.detectedType) {
       throw new ValidationError(
         result.error ?? 'Evidence file failed validation',
@@ -838,18 +830,6 @@ export class DisputesService {
     return Number.isFinite(configured) && configured > 0
       ? configured
       : DEFAULT_EVIDENCE_MAX_FILE_SIZE_BYTES;
-  }
-
-  private getEvidenceVideoMaxSizeBytes(): number {
-    const configured = Number(
-      this.configService?.get(
-        'DISPUTE_EVIDENCE_VIDEO_MAX_FILE_SIZE_BYTES',
-        DEFAULT_EVIDENCE_VIDEO_MAX_FILE_SIZE_BYTES,
-      ) ?? DEFAULT_EVIDENCE_VIDEO_MAX_FILE_SIZE_BYTES,
-    );
-    return Number.isFinite(configured) && configured > 0
-      ? configured
-      : DEFAULT_EVIDENCE_VIDEO_MAX_FILE_SIZE_BYTES;
   }
 
   /**

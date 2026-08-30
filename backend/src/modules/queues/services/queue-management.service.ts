@@ -215,7 +215,6 @@ export class QueueManagementService {
       'blockchain',
       'data-sync',
       'analytics',
-      'video-processing',
     ];
     return Promise.all(queues.map((q) => this.getQueueStats(q)));
   }

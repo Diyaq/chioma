@@ -353,6 +353,8 @@ export class AgreementsService {
       );
     }
 
+    await this.promptLeaseReviewSafely(id);
+
     return saved;
   }
 
@@ -410,7 +412,27 @@ export class AgreementsService {
       'agreement.status.changed',
       new AgreementStatusChangedEvent(id, oldStatus, newStatus, reason),
     );
+
+    if (newStatus === AgreementStatus.EXPIRED) {
+      await this.promptLeaseReviewSafely(id);
+    }
+
     return saved;
+  }
+
+  /**
+   * Sends the lease-end review prompt without letting a notification
+   * failure block the status transition that triggered it.
+   */
+  private async promptLeaseReviewSafely(agreementId: string): Promise<void> {
+    try {
+      await this.reviewPromptService.promptForLeaseReview(agreementId);
+    } catch (error) {
+      this.logger.error(
+        `Failed to send lease review prompt for agreement ${agreementId}`,
+        error,
+      );
+    }
   }
 
   async generateAgreementPdf(id: string): Promise<Buffer> {
